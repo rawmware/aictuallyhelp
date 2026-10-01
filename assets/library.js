@@ -58,9 +58,10 @@
   function mountFlip(root, opts = {}) {
     const interval = opts.interval || 5000;
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const rest = P.filter((p) => !p.fame);
+    const src = opts.filter ? P.filter(opts.filter) : P;
+    const rest = src.filter((p) => !p.fame);
     for (let i = rest.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [rest[i], rest[j]] = [rest[j], rest[i]]; }
-    const deck = P.filter((p) => p.fame).concat(rest);
+    const deck = src.filter((p) => p.fame).concat(rest);
     let i = 0, paused = false, hover = false, timer = null, busy = false;
 
     root.innerHTML = `

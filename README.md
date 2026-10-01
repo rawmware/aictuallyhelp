@@ -12,6 +12,7 @@ AI ACTUALLY HELP IS A PASSION PROJECT I CREATED WITH HOPES OF IT BEING A PLATFOR
 | `lab.html` | Hands-on demos: live markdown editor, files & folders explorer, the markdown handoff, code blocks, "what am I missing?" |
 | `cheatsheets.html` | Printable one-page sheets (letter size) and a fill-in workshop flyer |
 | `website.html` | Make a real website right now: one copy-paste master prompt, then GitHub, domains, Vercel, and connecting them, step by step |
+| `words.html` | AI words, decoded: 46 engineering terms with plain meanings, checked history and a prompt each; prompting advice from OpenAI, Anthropic, Karpathy and Boris Cherny as templates; sources |
 | `workshops.html` | For nonprofits: session agenda, FAQ, about, and a request form that writes the email for you |
 
 ## Run it

@@ -18,6 +18,18 @@
     ["power", "Stress-test my idea", "Argue against my idea as hard as you can. Then tell me which of your points actually matter.\n\nMy idea: [YOUR IDEA]"],
     ["power", "Turn anything into steps", "Turn this into a simple step-by-step checklist I can follow:\n\n[PASTE IT]"],
 
+    // ---------- From the pros (templates built from published guidance) ----------
+    ["pros", "The 4-part prompt: goal, return format, warnings, context", "GOAL: I want [WHAT YOU WANT — e.g. a list of the best medium-length hikes within two hours of my city].\n\nRETURN FORMAT: For each one, give me [EXACTLY WHAT TO INCLUDE — e.g. the name, starting address, distance, drive time, and what makes it special].\n\nWARNINGS: Be careful that [WHAT MUST BE RIGHT — e.g. every place really exists and the times are accurate]. If you're not sure about something, say so.\n\nCONTEXT: [EVERYTHING ABOUT YOUR SITUATION — what you've already tried, what you like, what you don't]", "The “anatomy of an o1 prompt” OpenAI president Greg Brockman shared in Feb 2025, originally by Ben Hylak. Most useful for long, detailed requests."],
+    ["pros", "Be clear and direct (Anthropic's #1 tip)", "Here's the context for this task:\n- Who it's for: [AUDIENCE]\n- What it will be used for: [PURPOSE]\n- What a great result looks like: [DESCRIBE IT]\n\nThe task: [YOUR TASK]\n\nSteps:\n1. [FIRST THING TO DO]\n2. [SECOND THING]\n3. [THIRD THING]\n\nGive me the result as [FORMAT].", "Anthropic's guide: treat the AI like a brilliant new coworker with no context. Tell it the purpose, the audience, and the steps."],
+    ["pros", "Separate the parts with tags", "<context>\n[BACKGROUND ABOUT YOU OR THE SITUATION]\n</context>\n\n<document>\n[PASTE THE TEXT YOU WANT IT TO WORK ON]\n</document>\n\n<instructions>\n[WHAT YOU WANT DONE WITH IT]\n</instructions>", "Anthropic recommends tags like these so the AI never mixes up your instructions with the material you pasted."],
+    ["pros", "Teach by example", "I want you to write [WHAT] in a specific style. Here are examples:\n\n<example>\n[EXAMPLE 1]\n</example>\n\n<example>\n[EXAMPLE 2]\n</example>\n\nNow write one about [YOUR TOPIC] that matches the examples.", "Giving 2–3 examples (“few-shot”) is one of the most reliable techniques in both Anthropic's and OpenAI's guides."],
+    ["pros", "Give it room to think", "Think through this carefully before answering. Put your step-by-step reasoning inside <thinking> tags, then give me only the final answer inside <answer> tags.\n\n[YOUR QUESTION OR PROBLEM]", "Based on chain-of-thought research (Wei et al., 2022) and Anthropic's “let Claude think” guidance."],
+    ["pros", "Answer only from my documents", "Answer my question using only the text below. Quote the parts you used. If the answer isn't in the text, say “I couldn't find that in the text” — don't guess.\n\n<text>\n[PASTE YOUR DOCUMENT]\n</text>\n\nQuestion: [YOUR QUESTION]", "OpenAI's prompt guide: “provide reference text.” It's the best way to cut down on made-up answers."],
+    ["pros", "Break a big job into small ones", "This is a big task, so let's split it up. First, list the smaller steps needed to [YOUR BIG GOAL]. Then do step 1 only and show me. Wait for me to say “next” before each step.", "OpenAI's prompt guide: “split complex tasks into simpler subtasks.”"],
+    ["pros", "Explore, plan, code, commit", "Don't write any code yet. First, read the files related to [YOUR FEATURE OR BUG] and explain how they work. Then make a step-by-step plan and show it to me. After I approve, write the code, test it, and commit with a clear message.", "The workflow from Anthropic's “Claude Code: Best practices for agentic coding” guide (2025)."],
+    ["pros", "Use subagents", "Research [YOUR TOPIC]. Use subagents: one for [ANGLE 1], one for [ANGLE 2], one for [ANGLE 3]. Each should return the key findings with sources. Then combine everything into one clear summary and point out where they disagree.", "Claude Code's creator, Boris Cherny, suggests adding “use subagents” when you want the AI to throw more effort at a problem. Works in tools that support subagents."],
+    ["pros", "Pack the context", "Before you do [YOUR TASK], here's everything you need:\n- Goal: [WHAT SUCCESS LOOKS LIKE]\n- Background: [THE SITUATION]\n- Examples of what I like: [PASTE]\n- Rules: [MUST DO / MUST NOT DO]\n- Files: [ATTACH OR PASTE]\n\nIf anything important is missing, ask me before you start.", "“Context engineering” (Karpathy and Lütke, June 2025): give the AI everything it needs, not just a clever sentence."],
+
     // ---------- Start here ----------
     ["start", "Send my very first message", "Hi. I'm new to this. Explain what you can help me with in 5 short bullet points. Use simple words."],
     ["start", "I don't know how to ask", "Ask me questions one at a time until you understand what I need. Then help me with it.\n\nWhat I need help with: [A FEW WORDS]"],
@@ -114,6 +126,25 @@
     ["build", "Write a spreadsheet formula", "I have a spreadsheet with these columns: [DESCRIBE THEM]. Write me the formula to [WHAT YOU WANT]. Tell me exactly where to paste it."],
     ["build", "Understand some code", "Explain what this code does, line by line, like I've never coded before:\n\n[PASTE THE CODE]"],
 
+    // ---------- Engineering ----------
+    ["eng", "Scrape a website into a spreadsheet", "Write a simple Python script that collects [WHAT DATA — e.g. product names and prices] from [WEBSITE URL] and saves it to a CSV file. First, tell me how to check if the site allows scraping (robots.txt and terms of service). Add polite delays between requests. Explain how to run it.", "Only scrape sites that allow it, and never collect people's personal info."],
+    ["eng", "Plan before coding", "Don't write any code yet. Explore the project, then write a step-by-step plan for [YOUR TASK]. List the files you'll change, the risks, and anything you're unsure about. Wait for my approval."],
+    ["eng", "Write a spec for my idea", "Create a markdown spec for [YOUR APP OR SITE IDEA]: the goal, who it's for, must-have features vs. later, each screen or page, and what “done” looks like. Ask me questions first if anything's unclear. Put it in a code block."],
+    ["eng", "Write a CLAUDE.md / AGENTS.md", "Look at my project and write a CLAUDE.md file for it (also usable as AGENTS.md): what the project is, how to run it, how to test it, coding rules, and things to never do. Keep it under 40 lines. Put it in a code block."],
+    ["eng", "Explain this codebase to me", "I'm new to this project. Explain how it's organized: the main folders, what each important file does, and how a request flows through the code. Then tell me the 3 files I should read first."],
+    ["eng", "Tests first, then code", "Write tests for this behavior first: [DESCRIBE WHAT IT SHOULD DO, with example inputs and outputs]. Run them and confirm they fail. Then write the code until all tests pass. Don't change the tests to make them pass."],
+    ["eng", "Fix the root cause, not the symptom", "This bug keeps happening: [DESCRIBE IT]. Find the root cause, not just a quick patch. Explain what's really going on in simple words, then fix it and add a test so it can't come back."],
+    ["eng", "Review my code like a senior engineer", "Review this code like a senior engineer would. Look for bugs, security problems, confusing parts, and anything that will break later. List the issues from most to least serious, with a fix for each.\n\n[PASTE YOUR CODE]"],
+    ["eng", "Security check", "Check this code for security problems: leaked passwords or API keys, unsafe handling of user input, missing permission checks, and anything else risky. Explain each problem simply and show the fix.\n\n[PASTE YOUR CODE]"],
+    ["eng", "Write a commit message and PR description", "Write a clear commit message and a short pull request description for these changes. Explain what changed and why. Put both in code blocks.\n\n[DESCRIBE OR PASTE YOUR CHANGES]"],
+    ["eng", "Connect my AI to my tools (MCP)", "I want my AI to work with [TOOL — e.g. Google Drive, GitHub, my calendar]. Explain whether there's an MCP server or connector for it, how to set it up step by step, and what I could do once it's connected. Warn me about any privacy settings to check."],
+    ["eng", "Turn my workflow into a skill", "I do this task often: [DESCRIBE THE TASK AND YOUR STEPS]. Turn it into a reusable skill: write a SKILL.md with a name, when to use it, the exact steps, and an example of a great result. Put it in a code block."],
+    ["eng", "Automate a boring task", "Write a script that [BORING TASK — e.g. renames all the photos in a folder by date]. Explain how to run it on [WINDOWS / MAC], and make it show me what it will do before it changes anything."],
+    ["eng", "Call a free API", "Show me how to get data from a free public API about [TOPIC — e.g. the weather] using a small script. Explain what an API is, how to read the response, and how to keep any API key secret."],
+    ["eng", "Make it work on phones", "Make this page look good and work well on phones as well as computers. Keep the design the same otherwise. Give me the full updated file in one code block.\n\n[PASTE YOUR HTML]"],
+    ["eng", "Self-checking agent loop", "After each change, check your own work by [HOW — e.g. running the tests / opening the page / comparing to my list]. If something fails, fix it and check again. Keep going until everything passes, then summarize what you changed."],
+    ["eng", "Understand an error message", "I got this error. Explain what it means in plain English, the most likely cause, and exactly what to do to fix it.\n\n[PASTE THE FULL ERROR]"],
+
     // ---------- Side hustle ----------
     ["biz", "Start a side hustle", "I have [SKILLS AND TOOLS] and about $[AMOUNT] to start. Give me 5 side hustle ideas I could start this month, how much each could make, and the first 3 steps for each."],
     ["biz", "Price my work", "I do [YOUR SERVICE] in [CITY]. How should I price it? Give me a simple price list and explain why."],
@@ -151,5 +182,7 @@
     { id: "biz", name: "Side hustle" },
     { id: "family", name: "Family" },
     { id: "power", name: "Power moves" },
+    { id: "pros", name: "From the pros" },
+    { id: "eng", name: "Engineering" },
   ];
 })();
