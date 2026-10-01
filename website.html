@@ -1,0 +1,337 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Make a real website right now — AI Actually Help</title>
+  <meta name="description" content="Build a website with AI, put it on GitHub, publish it free with Vercel, and connect your own domain name. One copy-paste prompt, or step by step in plain English.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+  <header class="topbar"><div class="wrap">
+    <a class="logo" href="index.html"><span class="logo-mark">ai</span>aictuallyhelp<span class="cursor">_</span></a>
+    <nav class="nav" aria-label="Main">
+      <a href="index.html#library">Prompts</a>
+      <a href="index.html#explain">What's an agent?</a>
+      <a href="start.html">New to AI</a>
+      <a href="website.html" aria-current="page">Make a website</a>
+      <a href="lab.html">Demos</a>
+      <a href="cheatsheets.html">Cheat sheets</a>
+      <a href="workshops.html" class="nav-cta">Book a workshop</a>
+    </nav>
+  </div></header>
+
+  <main>
+    <section class="page-head"><div class="wrap">
+      <span class="label"><span class="n">~/website</span> · about 1 hour · $0 to start</span>
+      <h1>Make a real website <span class="grad">right now.</span></h1>
+      <p class="lead">Not a pretend one. A real site, on the real internet, at your own address like <b>yourname.com</b>. You don't need to know how to code. You need this page and an AI app.</p>
+    </div></section>
+
+    <!-- MASTER PROMPT -->
+    <section class="section tight" id="prompt">
+      <div class="wrap">
+        <div class="section-head" style="margin-bottom:20px">
+          <span class="label"><span class="n">00</span> / the shortcut</span>
+          <h2>Don't want to read? Copy this.</h2>
+          <p>Paste it into ChatGPT, Claude or Gemini. Fill in your idea at the bottom. Your AI will walk you through every step on this page, one at a time.</p>
+        </div>
+        <div class="codebox" style="background:#fff;box-shadow:var(--shadow-lg)">
+          <div class="codebox-head"><span>the whole thing, in one prompt</span><button class="copy" type="button" data-copy style="background:var(--ink);color:#fff;border-color:var(--ink);padding:9px 14px"><span class="copy-label">Copy prompt</span></button></div>
+          <pre id="masterPrompt" style="font-size:14.5px">I want to make a real website and put it online at my own domain name (like mysite.com), today. I'm a beginner, so explain everything in simple words and walk me through it ONE step at a time. Wait for me to say "done" before you move on.
+
+Here's the plan:
+1. PLAN IT: Ask me what my site is for, who it's for, and what should be on it. Then write a markdown file that describes the site.
+2. BUILD IT: Build the site as a single index.html file. Put the whole file in one code block. Tell me how to save it on my computer.
+3. GITHUB: Help me make a free GitHub account, create a new repository, and upload my index.html using the GitHub website (no coding tools).
+4. VERCEL: Help me make a free Vercel account by signing up with GitHub, then import my repository so my site goes live on a free .vercel.app link.
+5. DOMAIN: Help me pick a good domain name and buy it from a registrar like Cloudflare, Porkbun or Namecheap. Warn me about renewal prices and extras I don't need.
+6. CONNECT IT: Help me add my domain in Vercel, then add the DNS records Vercel shows me at my registrar (usually an A record and a CNAME record).
+7. UPDATE IT: Show me how to change my site later. When I edit the file on GitHub, Vercel updates the site automatically.
+
+Before each step, tell me in one or two sentences what it is and why it matters. If my screen looks different from what you describe, ask me what I see.
+
+My website idea: <span class="blank">[DESCRIBE YOUR IDEA, e.g. a page for my lawn care business]</span></pre>
+        </div>
+        <p class="muted small" style="margin-top:12px">Tip: if you're using an app on a computer, open this page and your AI side by side.</p>
+      </div>
+    </section>
+
+    <!-- THE BIG PICTURE -->
+    <section class="section soft">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="label"><span class="n">01</span> / the big picture</span>
+          <h2>Four pieces. That's all a website is.</h2>
+          <p>Every website you've ever visited works like this. Once you see it, it's not scary anymore.</p>
+        </div>
+        <div class="flow">
+          <div class="flow-step"><span class="flow-ic">📄</span><b>Your files</b><span>The website itself. Usually one file called <code>index.html</code>. AI writes it for you.</span></div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-step"><span class="flow-ic">🐙</span><b>GitHub</b><span>Stores your files safely online and remembers every version.</span></div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-step"><span class="flow-ic">▲</span><b>Vercel</b><span>Takes your files from GitHub and puts them on the internet.</span></div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-step"><span class="flow-ic">🌐</span><b>Your domain</b><span>The address people type, like <code>yourname.com</code>. Points to Vercel.</span></div>
+        </div>
+        <div class="tip" style="margin-top:22px"><b>Think of it like a store.</b><p>Your files are the products. GitHub is the warehouse. Vercel is the store building. Your domain is the street address on the sign.</p></div>
+      </div>
+    </section>
+
+    <!-- EXPLAINERS -->
+    <section class="section">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="label"><span class="n">02</span> / the words, explained</span>
+          <h2>What these things are, and why you want them.</h2>
+        </div>
+        <div class="grid grid-3">
+          <article class="card concept" style="box-shadow:none" id="github">
+            <span class="tag">free</span>
+            <h3>What is GitHub?</h3>
+            <p>A website that stores your project's files online. Every time you change something, it saves a new version, so you can always go back. It's where almost every programmer in the world keeps their work.</p>
+            <p><b>Why use it:</b></p>
+            <ul class="small" style="margin:0;padding-left:18px;color:var(--ink-2)">
+              <li><b>Never lose your work.</b> It lives online, not on one laptop.</li>
+              <li><b>Undo anything.</b> Every version is saved.</li>
+              <li><b>It's your portfolio.</b> Employers look at GitHub. It shows you build things.</li>
+              <li><b>It connects to Vercel.</b> Change a file, and your site updates by itself.</li>
+            </ul>
+            <div class="codebox"><div class="codebox-head"><span>ask your AI</span><button class="copy" type="button" data-copy><span class="copy-label">Copy</span></button></div><pre>Explain what GitHub is and why beginners should use it, in simple words. What's a "repository" and what's a "commit"? Use an everyday example.</pre></div>
+          </article>
+          <article class="card concept" style="box-shadow:none" id="domain">
+            <span class="tag amber">about $10–20 a year</span>
+            <h3>What is a domain?</h3>
+            <p>Your website's address, like <code>google.com</code> or <code>aictuallyhelp.com</code>. You rent it by the year. Without one, your site still works, it just has a longer free address like <code>yoursite.vercel.app</code>.</p>
+            <p><b>Why get one:</b> it looks professional, it's easy to remember, and it goes on business cards, flyers and resumes. You can also get a matching email address later.</p>
+            <div class="codebox"><div class="codebox-head"><span>ask your AI</span><button class="copy" type="button" data-copy><span class="copy-label">Copy</span></button></div><pre>Give me 20 domain name ideas for <span class="blank">[YOUR SITE OR BUSINESS]</span>. Short, easy to spell, easy to say out loud. Mostly .com. Tell me which 3 you'd pick and why.</pre></div>
+          </article>
+          <article class="card concept" style="box-shadow:none" id="vercel">
+            <span class="tag green">free for personal sites</span>
+            <h3>What is Vercel?</h3>
+            <p>A service that puts your website on the internet (that's called <b>hosting</b>). You connect it to GitHub once. After that, every time your files change on GitHub, Vercel updates your live site in about a minute. You never touch a server.</p>
+            <p><b>Why use it:</b> it's free for personal projects (the “Hobby” plan), it's fast, and it gives you a secure <code>https://</code> link automatically.</p>
+            <div class="codebox"><div class="codebox-head"><span>ask your AI</span><button class="copy" type="button" data-copy><span class="copy-label">Copy</span></button></div><pre>Explain what website hosting is and what Vercel does, in simple words. How does Vercel work with GitHub?</pre></div>
+          </article>
+        </div>
+
+        <h3 style="margin:48px 0 14px;font-size:1.3rem">Where to buy a domain</h3>
+        <p class="muted" style="max-width:46em">Any of these work. Search the name you want, check the price, buy it. You'll look up your domain on whichever one you pick.</p>
+        <div class="tool-cards">
+          <a class="tool" href="https://www.cloudflare.com/products/registrar/" target="_blank" rel="noopener"><b>Cloudflare</b><span>Sells at cost, no markup. Needs a free Cloudflare account.</span></a>
+          <a class="tool" href="https://porkbun.com" target="_blank" rel="noopener"><b>Porkbun</b><span>Cheap, simple, beginner-friendly.</span></a>
+          <a class="tool" href="https://www.namecheap.com" target="_blank" rel="noopener"><b>Namecheap</b><span>Popular and easy to use.</span></a>
+          <a class="tool" href="https://domains.squarespace.com" target="_blank" rel="noopener"><b>Squarespace Domains</b><span>Clean and simple, a bit pricier.</span></a>
+          <a class="tool" href="https://www.godaddy.com" target="_blank" rel="noopener"><b>GoDaddy</b><span>The biggest. Watch out for add-ons at checkout.</span></a>
+        </div>
+        <div class="tip warn" style="margin-top:16px"><b>Before you pay:</b><p>Check the <b>renewal price</b> (what it costs next year), not just the first-year deal. Skip extras like paid email, “SEO tools” or site builders. You don't need them. Free privacy protection is normal now.</p></div>
+      </div>
+    </section>
+
+    <!-- STEPS -->
+    <div class="progress-wrap"><div class="wrap">
+      <span id="progText">0 / 6 done</span>
+      <div class="progress"><i id="progBar"></i></div>
+      <button class="btn btn-ghost btn-sm" id="reset" type="button">Reset</button>
+    </div></div>
+
+    <div class="wrap">
+      <div class="section-head" style="margin:56px 0 0">
+        <span class="label"><span class="n">03</span> / step by step</span>
+        <h2>Do it yourself, one step at a time.</h2>
+        <p>A computer is easiest for this (a library computer works great). Check off each step as you go. This page remembers your progress.</p>
+      </div>
+    </div>
+
+    <div class="wrap steps">
+
+      <section class="step" id="step-1" data-step="1">
+        <div class="step-num">1</div>
+        <div class="body">
+          <span class="label">step 1 · 15 min · free</span>
+          <h2>Build your site with AI</h2>
+          <p>Describe what you want. The AI writes the whole website as one file.</p>
+          <div class="codebox" style="margin-top:12px"><div class="codebox-head"><span>prompt</span><button class="copy" type="button" data-copy><span class="copy-label">Copy</span></button></div><pre>I want a simple, modern website for <span class="blank">[YOUR IDEA]</span>. Ask me questions one at a time about what should be on it. Then build it as a single index.html file that works on phones. Put the whole file in one code block.</pre></div>
+          <ol class="howto">
+            <li><div>When the AI gives you the code, tap <b>Copy</b> on its code block.</div></li>
+            <li><div>Open a plain text editor: <b>Notepad</b> on Windows, or <b>TextEdit</b> on Mac (in TextEdit, choose <b>Format → Make Plain Text</b> first).</div></li>
+            <li><div>Paste. Save it as <code>index.html</code> exactly. Put it in a new folder called <code>my-website</code>.</div></li>
+            <li><div>Double-click <code>index.html</code>. It opens in your browser. That's your website! It's just only on your computer for now.</div></li>
+          </ol>
+          <div class="tip"><b>Want changes?</b><p>Tell the AI: “Make the title bigger and change the color to green. Give me the full updated file in a code block.” Then save over the old file.</p></div>
+          <label class="check"><input type="checkbox"> My site opens in my browser</label>
+        </div>
+      </section>
+
+      <section class="step" id="step-2" data-step="2">
+        <div class="step-num">2</div>
+        <div class="body">
+          <span class="label">step 2 · 10 min · free</span>
+          <h2>Put it on GitHub</h2>
+          <p>This stores your site online so Vercel can find it. Everything happens on the GitHub website. No special tools needed.</p>
+          <ol class="howto">
+            <li><div>Go to <a href="https://github.com/signup" target="_blank" rel="noopener">github.com/signup</a> and make a free account. Pick a professional username. It shows up in your links.</div></li>
+            <li><div>Click the <b>+</b> at the top right → <b>New repository</b>. (A <b>repository</b>, or “repo,” is just a project folder on GitHub.)</div></li>
+            <li><div>Name it something like <code>my-website</code>. Leave it <b>Public</b>. Check <b>Add a README file</b>. Click <b>Create repository</b>.</div></li>
+            <li><div>In your new repo, click <b>Add file → Upload files</b>. Drag in your <code>index.html</code>.</div></li>
+            <li><div>Scroll down and click <b>Commit changes</b>. (A <b>commit</b> = saving a version.)</div></li>
+          </ol>
+          <div class="codebox" style="margin-top:6px"><div class="codebox-head"><span>stuck? ask your AI</span><button class="copy" type="button" data-copy><span class="copy-label">Copy</span></button></div><pre>I'm trying to upload my index.html file to a new GitHub repository using the website. I'm stuck. Here's what I see on my screen: <span class="blank">[DESCRIBE IT]</span>. What do I click next?</pre></div>
+          <label class="check"><input type="checkbox"> My index.html is on GitHub</label>
+        </div>
+      </section>
+
+      <section class="step" id="step-3" data-step="3">
+        <div class="step-num">3</div>
+        <div class="body">
+          <span class="label">step 3 · 5 min · free</span>
+          <h2>Connect Vercel to GitHub, and go live</h2>
+          <p>This is the moment your site goes on the real internet.</p>
+          <ol class="howto">
+            <li><div>Go to <a href="https://vercel.com/signup" target="_blank" rel="noopener">vercel.com/signup</a>. Choose the <b>Hobby</b> (free) plan and click <b>Continue with GitHub</b>. Say yes when GitHub asks for permission.</div></li>
+            <li><div>Click <b>Add New… → Project</b>.</div></li>
+            <li><div>Find your <code>my-website</code> repo and click <b>Import</b>. Don't see it? Click the option to adjust GitHub permissions and give Vercel access to that repo.</div></li>
+            <li><div>Leave the settings as they are (Framework: <b>Other</b> is fine). Click <b>Deploy</b>.</div></li>
+            <li><div>Wait about a minute. 🎉 You get a link like <code>my-website.vercel.app</code>. <b>Open it on your phone.</b> It's live. Anyone in the world can see it.</div></li>
+          </ol>
+          <div class="tip good"><b>From now on:</b><p>Every time you change a file on GitHub, Vercel updates your site automatically. You never have to do this step again.</p></div>
+          <label class="check"><input type="checkbox"> My site is live on a .vercel.app link</label>
+        </div>
+      </section>
+
+      <section class="step" id="step-4" data-step="4">
+        <div class="step-num">4</div>
+        <div class="body">
+          <span class="label">step 4 · 10 min · about $10–20/year</span>
+          <h2>Buy your domain</h2>
+          <p>Optional, but this is what makes it feel real. Pick a registrar from <a href="#domain">the list above</a>.</p>
+          <ol class="howto">
+            <li><div>Search for the name you want. If it's taken, try a small change, or ask your AI for ideas.</div></li>
+            <li><div>Check the <b>renewal price</b>. Add it to your cart. Skip the extras.</div></li>
+            <li><div>Pay and make your account. Keep this login safe. You'll need it in the next step.</div></li>
+          </ol>
+          <div class="codebox"><div class="codebox-head"><span>prompt</span><button class="copy" type="button" data-copy><span class="copy-label">Copy</span></button></div><pre>I want to buy the domain <span class="blank">[NAME.com]</span>. What should I watch out for at checkout? Which extras can I skip? What's a fair price for the first year and for renewal?</pre></div>
+          <label class="check"><input type="checkbox"> I own a domain</label>
+        </div>
+      </section>
+
+      <section class="step" id="step-5" data-step="5">
+        <div class="step-num">5</div>
+        <div class="body">
+          <span class="label">step 5 · 10 min (+ waiting) · free</span>
+          <h2>Connect your domain to Vercel</h2>
+          <p>You're telling the internet: “when someone types my domain, send them to my site on Vercel.” You do that with <b>DNS records</b>, which are like forwarding instructions.</p>
+          <ol class="howto">
+            <li><div>In Vercel, open your project → <b>Settings → Domains</b>. Type your domain (like <code>yourname.com</code>) and click <b>Add</b>. Add the <code>www</code> version too if it asks.</div></li>
+            <li><div>Vercel shows you the exact records to add. <b>Keep that tab open.</b></div></li>
+            <li><div>In another tab, log into where you bought your domain. Find <b>DNS</b> settings (sometimes called “Manage DNS” or “DNS Records”).</div></li>
+            <li><div>Add the records Vercel showed you. Usually they look like this:</div></li>
+          </ol>
+          <div class="codebox" style="margin:4px 0 12px"><div class="codebox-head"><span>DNS records (typical)</span></div>
+            <div style="overflow-x:auto"><table class="dns">
+              <tr><th>Type</th><th>Name / Host</th><th>Value / Points to</th></tr>
+              <tr><td><code>A</code></td><td><code>@</code></td><td><code>76.76.21.21</code></td></tr>
+              <tr><td><code>CNAME</code></td><td><code>www</code></td><td><code>cname.vercel-dns.com</code></td></tr>
+            </table></div>
+          </div>
+          <div class="tip warn"><b>Important:</b><p>If Vercel shows you <b>different</b> values, use Vercel's. They're specific to your site. Delete any old A record for <code>@</code> that points somewhere else.</p></div>
+          <ol class="howto" start="5" style="counter-reset:h 4">
+            <li><div>Save. Go back to Vercel and wait. It can take a few minutes, sometimes up to a day or two. When it shows a green check, you're done.</div></li>
+            <li><div>Type your domain into any browser. 🎉 <b>That's your website.</b> The lock icon (https) is set up automatically.</div></li>
+          </ol>
+          <div class="codebox"><div class="codebox-head"><span>stuck? ask your AI</span><button class="copy" type="button" data-copy><span class="copy-label">Copy</span></button></div><pre>I'm connecting my domain from <span class="blank">[REGISTRAR, e.g. Porkbun]</span> to my Vercel project. Vercel says to add these records: <span class="blank">[PASTE WHAT VERCEL SHOWS]</span>. Walk me through adding them on <span class="blank">[REGISTRAR]</span>, step by step.</pre></div>
+          <label class="check"><input type="checkbox"> My domain opens my site</label>
+        </div>
+      </section>
+
+      <section class="step" id="step-6" data-step="6">
+        <div class="step-num">6</div>
+        <div class="body">
+          <span class="label">step 6 · 2 min · free forever</span>
+          <h2>Change it whenever you want</h2>
+          <p>Your site isn't finished. It grows with you. Here's how to update it:</p>
+          <ol class="howto">
+            <li><div>Ask your AI for the change, and get the full updated file in a code block.</div></li>
+            <li><div>On GitHub, open your repo → click <code>index.html</code> → click the <b>pencil ✏️</b> (Edit).</div></li>
+            <li><div>Select all the old code, delete it, paste the new code. Click <b>Commit changes</b>.</div></li>
+            <li><div>Wait about a minute. Refresh your site. Updated. ✨</div></li>
+          </ol>
+          <div class="codebox"><div class="codebox-head"><span>prompt</span><button class="copy" type="button" data-copy><span class="copy-label">Copy</span></button></div><pre>Here's my current website code. Change it so that <span class="blank">[WHAT YOU WANT CHANGED]</span>. Give me the FULL updated file in one code block, not just the changed part.
+
+<span class="blank">[PASTE YOUR index.html]</span></pre></div>
+          <label class="check"><input type="checkbox"> I made my first update</label>
+        </div>
+      </section>
+
+      <div class="celebrate" id="done">
+        <div style="font-size:44px">🌐</div>
+        <h2>You have a real website.</h2>
+        <p style="color:#0b5a3f;max-width:32em;margin:0 auto 20px">Put the link on your resume, your business card, your social media. You built that. Next idea?</p>
+        <div class="btn-row" style="justify-content:center">
+          <a class="btn btn-primary" href="index.html#library">More prompts →</a>
+          <a class="btn btn-ghost" href="lab.html#handoff">See the handoff demo</a>
+        </div>
+      </div>
+    </div>
+
+    <section class="section soft">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="label"><span class="n">04</span> / what it costs</span>
+          <h2>Basically nothing.</h2>
+        </div>
+        <div class="stat-row">
+          <div class="stat"><b>$0</b><span><b>AI app.</b> Free versions of ChatGPT, Claude and Gemini can build this.</span></div>
+          <div class="stat"><b>$0</b><span><b>GitHub.</b> Free account, free public repos.</span></div>
+          <div class="stat"><b>$0</b><span><b>Vercel.</b> Free Hobby plan for personal, non-commercial sites. Business sites may need a paid plan.</span></div>
+          <div class="stat"><b>~$10–20</b><span><b>Domain, per year.</b> Optional. Your site works without one.</span></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer"><div class="wrap">
+    <div>
+      <a class="logo" href="index.html"><span class="logo-mark">ai</span>aictuallyhelp</a>
+      <p style="margin-top:14px">A free, hands-on way to learn AI — built for people starting over. Not a product. Not a pitch.</p>
+    </div>
+    <div><h4>Learn</h4><ul><li><a href="index.html#library">All prompts</a></li><li><a href="start.html">New to AI</a></li><li><a href="website.html">Make a website</a></li><li><a href="prompts.html">Prompt builder</a></li><li><a href="lab.html">Demos</a></li></ul></div>
+    <div><h4>Print</h4><ul><li><a href="cheatsheets.html">Cheat sheets</a></li><li><a href="cheatsheets.html#flyer">Workshop flyer</a></li></ul></div>
+    <div><h4>Organizations</h4><ul><li><a href="workshops.html">Book a workshop</a></li><li><a href="mailto:Roman@aictuallyhelp.com">Roman@aictuallyhelp.com</a></li><li><a href="https://github.com/rawmware/aictuallyhelp">Source on GitHub</a></li></ul></div>
+  </div></footer>
+
+  <script src="assets/site.js"></script>
+  <script>
+  (function () {
+    const { $, $$, store, confetti } = window.AH;
+    const KEY = "ah.website.v1";
+    const steps = $$(".step");
+    const state = store.get(KEY, {});
+    let celebrated = steps.every(s => state[s.dataset.step]);
+    function update(fromClick) {
+      let n = 0;
+      steps.forEach(s => {
+        const on = !!state[s.dataset.step];
+        s.classList.toggle("done", on);
+        s.querySelector(".check input").checked = on;
+        if (on) n++;
+      });
+      $("#progText").textContent = `${n} / ${steps.length} done`;
+      $("#progBar").style.width = (n / steps.length * 100) + "%";
+      const all = n === steps.length;
+      $("#done").classList.toggle("show", all);
+      if (all && fromClick && !celebrated) { confetti(); celebrated = true; }
+      if (!all) celebrated = false;
+    }
+    steps.forEach(s => s.querySelector(".check input").addEventListener("change", e => {
+      state[s.dataset.step] = e.target.checked; store.set(KEY, state); update(true);
+    }));
+    $("#reset").addEventListener("click", () => { Object.keys(state).forEach(k => delete state[k]); store.set(KEY, state); update(); });
+    update();
+  })();
+  </script>
+</body>
+</html>
