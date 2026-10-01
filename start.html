@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Start from zero — AI Actually Help</title>
+  <meta name="description" content="Never used AI? No email? Start here. Six short steps: get online, make a free email, open ChatGPT, Claude or Gemini, and send your first message.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+  <header class="topbar"><div class="wrap">
+    <a class="logo" href="index.html"><span class="logo-mark">ai</span>aictuallyhelp<span class="cursor">_</span></a>
+    <nav class="nav" aria-label="Main">
+      <a href="start.html" aria-current="page">Start from zero</a>
+      <a href="prompts.html">Prompts</a>
+      <a href="lab.html">Demos</a>
+      <a href="cheatsheets.html">Cheat sheets</a>
+      <a href="workshops.html" class="nav-cta">Book a workshop</a>
+    </nav>
+  </div></header>
+
+  <main>
+    <section class="page-head"><div class="wrap">
+      <span class="label"><span class="n">~/start</span> · about 20 minutes</span>
+      <h1>Start from zero.</h1>
+      <p class="lead">Six steps. No experience needed. Check each one off as you go — this page remembers your progress on this device.</p>
+    </div></section>
+
+    <div class="progress-wrap"><div class="wrap">
+      <span id="progText">0 / 6 done</span>
+      <div class="progress"><i id="progBar"></i></div>
+      <button class="btn btn-ghost btn-sm" id="reset" type="button">Reset</button>
+    </div></div>
+
+    <div class="wrap steps">
+
+      <!-- 1 -->
+      <section class="step" id="step-1" data-step="1">
+        <div class="step-num">1</div>
+        <div class="body">
+          <span class="label">step 1 · 2 min</span>
+          <h2>Get online</h2>
+          <p>You need a phone or a computer, and internet. A phone is totally fine. Free Wi‑Fi is easier to find than you think:</p>
+          <div class="grid grid-2" style="margin-top:12px">
+            <div class="card" style="box-shadow:none;padding:18px"><h3>📚 Public library</h3><p>Free Wi‑Fi <b>and</b> free computers. You can usually get a library card with no fee. Staff will help you log on.</p></div>
+            <div class="card" style="box-shadow:none;padding:18px"><h3>🏠 Shelters &amp; centers</h3><p>Many shelters, job centers and community centers have Wi‑Fi or a computer room. Just ask the front desk.</p></div>
+            <div class="card" style="box-shadow:none;padding:18px"><h3>☕ Coffee &amp; fast food</h3><p>Most have free Wi‑Fi. Look for a network with the store's name.</p></div>
+            <div class="card" style="box-shadow:none;padding:18px"><h3>📱 Cheap phone plans</h3><p>In the US, the <b>Lifeline</b> program can give you a phone plan for little or nothing if you get benefits. Search “Lifeline phone” or ask a caseworker.</p></div>
+          </div>
+          <label class="check"><input type="checkbox"> I'm online</label>
+        </div>
+      </section>
+
+      <!-- 2 -->
+      <section class="step" id="step-2" data-step="2">
+        <div class="step-num">2</div>
+        <div class="body">
+          <span class="label">step 2 · 10 min</span>
+          <h2>Make a free email</h2>
+          <p>An email address is your key to almost everything online — jobs, benefits, AI apps. We'll use Gmail. It's free.</p>
+
+          <ol class="howto">
+            <li><div>Go to <a href="https://accounts.google.com/signup" target="_blank" rel="noopener">accounts.google.com/signup</a>. On a phone, you can also open the Gmail app and tap <b>Create account</b>.</div></li>
+            <li><div>Type your <b>first and last name</b>. Then your <b>birthday</b>.</div></li>
+            <li><div>Pick your <b>email address</b>. Google will suggest some, or make your own. Need ideas? Use the tool below.</div></li>
+            <li><div>Make a <b>password</b>. Long is better than weird. (Ideas below.)</div></li>
+            <li><div>Google might ask for a <b>phone number</b> to send you a code. If you don't have one, see the tip below.</div></li>
+            <li><div>Skip anything that says “optional.” Agree to the terms. <b>You're in.</b></div></li>
+          </ol>
+          <p class="muted small">Screens change sometimes, so yours may look a little different. That's normal — just keep going.</p>
+
+          <div class="grid grid-2" style="margin-top:20px">
+            <div class="card" style="box-shadow:none">
+              <span class="label">tool · email name ideas</span>
+              <h3 style="margin-top:10px">Pick an address that looks professional</h3>
+              <p>Employers will see it. Your name works best.</p>
+              <div class="row" style="margin-top:14px">
+                <div class="field"><label for="fn">First name</label><input type="text" id="fn" placeholder="Marcus" autocomplete="off"></div>
+                <div class="field"><label for="ln">Last name</label><input type="text" id="ln" placeholder="Johnson" autocomplete="off"></div>
+              </div>
+              <div class="suggest" id="nameIdeas"></div>
+              <p class="muted small" style="margin:10px 0 0">Tap one to copy it. Nothing you type here is saved or sent.</p>
+            </div>
+            <div class="card" style="box-shadow:none">
+              <span class="label">tool · password ideas</span>
+              <h3 style="margin-top:10px">Three random words + a number</h3>
+              <p>Easy for you to remember, hard for anyone to guess. Use these as inspiration and change them up.</p>
+              <div class="codebox" style="margin-top:14px"><div class="codebox-head">idea <button class="copy" type="button" id="newPw">↻ New one</button></div><pre id="pw">…</pre></div>
+              <p class="muted small" style="margin:10px 0 0">Never use the same password everywhere. Never tell anyone your password — not even staff.</p>
+            </div>
+          </div>
+
+          <div class="tip warn"><b>No phone?</b><p>Ask shelter or library staff if you can use the center's number to get the code once. Or try <a href="https://signup.live.com" target="_blank" rel="noopener">Outlook.com</a> — also free, and works the same way.</p></div>
+          <div class="tip"><b>Write it down.</b><p>Write your new email address on paper and keep it in your wallet. Keep your password somewhere safe and separate. Our <a href="cheatsheets.html#email">email cheat sheet</a> has a box for this.</p></div>
+
+          <label class="check"><input type="checkbox"> I have an email</label>
+        </div>
+      </section>
+
+      <!-- 3 -->
+      <section class="step" id="step-3" data-step="3">
+        <div class="step-num">3</div>
+        <div class="body">
+          <span class="label">step 3 · 3 min</span>
+          <h2>Open an AI app</h2>
+          <p>Pick <b>one</b>. They're all free to start and they all work about the same. Tap <b>“Continue with Google”</b> and use the email you just made — no new password needed.</p>
+          <div class="tool-cards">
+            <a class="tool" href="https://chatgpt.com" target="_blank" rel="noopener"><b>ChatGPT</b><span>chatgpt.com · by OpenAI</span></a>
+            <a class="tool" href="https://claude.ai" target="_blank" rel="noopener"><b>Claude</b><span>claude.ai · by Anthropic</span></a>
+            <a class="tool" href="https://gemini.google.com" target="_blank" rel="noopener"><b>Gemini</b><span>gemini.google.com · by Google</span></a>
+          </div>
+          <div class="tip good"><b>On a phone?</b><p>Download the app from the App Store or Play Store. Search the name. Make sure it's from the real company (OpenAI, Anthropic or Google). The free version is all you need.</p></div>
+          <label class="check"><input type="checkbox"> I opened an AI app</label>
+        </div>
+      </section>
+
+      <!-- 4 -->
+      <section class="step" id="step-4" data-step="4">
+        <div class="step-num">4</div>
+        <div class="body">
+          <span class="label">step 4 · 2 min</span>
+          <h2>Send your first message</h2>
+          <p>Talk to it like you'd text a smart friend. No special words needed. Copy this, paste it in the message box, hit send:</p>
+          <div class="codebox" style="margin-top:12px"><div class="codebox-head">your first prompt <button class="copy" type="button" data-copy><span class="copy-label">Copy</span></button></div><pre>Hi. I'm new to this. Explain what you can help me with in 5 short bullet points. Use simple words.</pre></div>
+          <p style="margin-top:16px"><b>Then try something real.</b> Here's one that works for almost anything:</p>
+          <div class="codebox"><div class="codebox-head">let it interview you <button class="copy" type="button" data-copy><span class="copy-label">Copy</span></button></div><pre>Ask me questions one at a time until you understand what I need. Then help me with it.
+
+What I need help with: <span class="blank">[DESCRIBE IT IN A FEW WORDS]</span></pre></div>
+          <div class="tip"><b>How to paste:</b><p>On a phone: press and hold in the message box → tap <b>Paste</b>. On a computer: <kbd>Ctrl</kbd> + <kbd>V</kbd> (or <kbd>⌘</kbd> + <kbd>V</kbd> on a Mac).</p></div>
+          <label class="check"><input type="checkbox"> I sent my first message</label>
+        </div>
+      </section>
+
+      <!-- 5 -->
+      <section class="step" id="step-5" data-step="5">
+        <div class="step-num">5</div>
+        <div class="body">
+          <span class="label">step 5 · 1 min</span>
+          <h2>Save the good stuff</h2>
+          <p>Phones get lost. Chats get buried. Here's the simplest trick: <b>email it to yourself.</b> Your email lives online, so you can open it from any library computer, any phone, any time.</p>
+          <ol class="howto">
+            <li><div>When the AI writes something good (a resume, a letter), ask: <b>“Write this in a code block for me.”</b></div></li>
+            <li><div>Tap the <b>copy</b> button on the box.</div></li>
+            <li><div>Open your email → <b>Compose</b> → put <b>your own address</b> in “To” → paste → send.</div></li>
+            <li><div>Give it a clear subject like <code>RESUME - Oct 2026</code> so you can search for it later.</div></li>
+          </ol>
+          <label class="check"><input type="checkbox"> I emailed something to myself</label>
+        </div>
+      </section>
+
+      <!-- 6 -->
+      <section class="step" id="step-6" data-step="6">
+        <div class="step-num">6</div>
+        <div class="body">
+          <span class="label">step 6 · 1 min</span>
+          <h2>Stay safe</h2>
+          <p>AI is a tool, not a person. It's really helpful — and sometimes it's wrong.</p>
+          <div class="dos" style="margin-top:14px">
+            <div class="yes"><b>✓ Do</b><ul>
+              <li>Double-check anything about law, health, money or deadlines with a real person.</li>
+              <li>Call before you go — addresses and hours can be out of date.</li>
+              <li>Ask “Are you sure? What might be wrong?”</li>
+              <li>Log out when you use a shared computer.</li>
+            </ul></div>
+            <div class="no"><b>✕ Don't</b><ul>
+              <li>Type your Social Security number, bank or card numbers, or passwords.</li>
+              <li>Pay anyone who says they'll “unlock” AI for you. The free version is enough.</li>
+              <li>Trust links or phone numbers without checking them.</li>
+              <li>Let it speak for you without reading it first.</li>
+            </ul></div>
+          </div>
+          <label class="check"><input type="checkbox"> Got it</label>
+        </div>
+      </section>
+
+      <div class="celebrate" id="done">
+        <div style="font-size:44px">🎉</div>
+        <h2>You did it.</h2>
+        <p style="color:#0b5a3f;max-width:30em;margin:0 auto 20px">You have an email, an AI app, and you know how to use it safely. That's more than most people. Next up:</p>
+        <div class="btn-row" style="justify-content:center">
+          <a class="btn btn-primary" href="prompts.html">Get more prompts →</a>
+          <a class="btn btn-ghost" href="lab.html">Try the demos</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer"><div class="wrap">
+    <div>
+      <a class="logo" href="index.html"><span class="logo-mark">ai</span>aictuallyhelp</a>
+      <p style="margin-top:14px">A free, hands-on way to learn AI — built for people starting over. Not a product. Not a pitch.</p>
+    </div>
+    <div><h4>Learn</h4><ul><li><a href="start.html">Start from zero</a></li><li><a href="prompts.html">Prompts</a></li><li><a href="lab.html">Demos</a></li></ul></div>
+    <div><h4>Print</h4><ul><li><a href="cheatsheets.html">Cheat sheets</a></li><li><a href="cheatsheets.html#flyer">Workshop flyer</a></li></ul></div>
+    <div><h4>Organizations</h4><ul><li><a href="workshops.html">Book a workshop</a></li><li><a href="mailto:Roman@aictuallyhelp.com">Roman@aictuallyhelp.com</a></li><li><a href="https://github.com/rawmware/aictuallyhelp">Source on GitHub</a></li></ul></div>
+  </div></footer>
+
+  <script src="assets/site.js"></script>
+  <script>
+  (function () {
+    const { $, $$, escapeHTML, store, confetti } = window.AH;
+    const KEY = "ah.start.v1";
+    const steps = $$(".step");
+    const state = store.get(KEY, {});
+    let celebrated = steps.every(s => state[s.dataset.step]);
+
+    function update(fromClick) {
+      let n = 0;
+      steps.forEach(s => {
+        const on = !!state[s.dataset.step];
+        s.classList.toggle("done", on);
+        s.querySelector(".check input").checked = on;
+        if (on) n++;
+      });
+      $("#progText").textContent = `${n} / ${steps.length} done`;
+      $("#progBar").style.width = (n / steps.length * 100) + "%";
+      const all = n === steps.length;
+      $("#done").classList.toggle("show", all);
+      if (all && fromClick && !celebrated) { confetti(); celebrated = true; }
+      if (!all) celebrated = false;
+    }
+    steps.forEach(s => {
+      s.querySelector(".check input").addEventListener("change", e => {
+        state[s.dataset.step] = e.target.checked;
+        store.set(KEY, state);
+        update(true);
+        if (e.target.checked) {
+          const next = s.nextElementSibling;
+          if (next && next.classList.contains("step") && !state[next.dataset.step]) {
+            setTimeout(() => next.scrollIntoView({ behavior: "smooth", block: "start" }), 350);
+          }
+        }
+      });
+    });
+    $("#reset").addEventListener("click", () => { Object.keys(state).forEach(k => delete state[k]); store.set(KEY, state); update(); window.scrollTo({ top: 0, behavior: "smooth" }); });
+    update();
+
+    // Email name ideas
+    const clean = s => s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/[^a-z0-9]/g, "");
+    function ideas() {
+      const f = clean($("#fn").value) || "marcus", l = clean($("#ln").value) || "johnson";
+      const yr = String(new Date().getFullYear()).slice(2);
+      const list = [`${f}.${l}`, `${f}${l}`, `${f[0]}${l}`, `${f}.${l}${yr}`, `${l}.${f}`, `${f}${l}.work`];
+      $("#nameIdeas").innerHTML = [...new Set(list)].map(x => `<button type="button" data-copy="${escapeHTML(x)}@gmail.com">${escapeHTML(x)}@gmail.com</button>`).join("");
+    }
+    $("#fn").addEventListener("input", ideas); $("#ln").addEventListener("input", ideas); ideas();
+
+    // Password ideas: three random words + 2 digits, built on-device with crypto.
+    const words = ["river","tiger","maple","rocket","pickle","canyon","violet","pepper","harbor","sunset","bison","cobalt","lantern","meadow","falcon","biscuit","thunder","walnut","orbit","cactus","willow","marble","copper","glacier","mango","pebble","shadow","comet","juniper","tundra","velvet","anchor","nectar","prairie","quartz","saddle","timber","waffle","zephyr","ember"];
+    function rnd(n) { const a = new Uint32Array(1); (window.crypto || window.msCrypto).getRandomValues(a); return a[0] % n; }
+    function pw() {
+      const pick = () => { const w = words[rnd(words.length)]; return w[0].toUpperCase() + w.slice(1); };
+      $("#pw").textContent = `${pick()}-${pick()}-${pick()}-${10 + rnd(90)}`;
+    }
+    $("#newPw").addEventListener("click", pw); pw();
+  })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Demos — AI Actually Help</title>
+  <meta name="description" content="Hands-on demos: what a markdown file is, why folders matter, how to hand a plan from one AI to the next, code blocks, and the 'what am I missing' check.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+  <header class="topbar"><div class="wrap">
+    <a class="logo" href="index.html"><span class="logo-mark">ai</span>aictuallyhelp<span class="cursor">_</span></a>
+    <nav class="nav" aria-label="Main">
+      <a href="start.html">Start from zero</a>
+      <a href="prompts.html">Prompts</a>
+      <a href="lab.html" aria-current="page">Demos</a>
+      <a href="cheatsheets.html">Cheat sheets</a>
+      <a href="workshops.html" class="nav-cta">Book a workshop</a>
+    </nav>
+  </div></header>
+
+  <main>
+    <section class="page-head"><div class="wrap">
+      <span class="label"><span class="n">~/demos</span> · 5 hands-on demos</span>
+      <h1>Don't read about it. <span class="grad">Try it.</span></h1>
+      <p class="lead">Everything here is real and works right in your browser. Click things. Type things. Break things. Nothing is saved anywhere but your device.</p>
+      <div class="lab-nav">
+        <a href="#markdown">01 · markdown files</a>
+        <a href="#folders">02 · files &amp; folders</a>
+        <a href="#handoff">03 · the handoff</a>
+        <a href="#codeblock">04 · code blocks</a>
+        <a href="#missing">05 · what am I missing?</a>
+      </div>
+    </div></section>
+
+    <!-- ========== 01 MARKDOWN ========== -->
+    <section class="demo" id="markdown"><div class="wrap">
+      <div class="demo-head">
+        <span class="label"><span class="n">01</span> / markdown files</span>
+        <h2>What's a markdown file? (A <code>.md</code> file)</h2>
+        <p>It's just a text file — like a note on your phone — with a few simple symbols that make it neat. That's it. No special program needed.</p>
+      </div>
+      <div class="explain">
+        <div class="card"><h3>📝 It's plain text</h3><p>Opens on any phone or computer, forever. It never breaks, never needs an app, never costs money.</p></div>
+        <div class="card"><h3># Symbols = structure</h3><p>A <code>#</code> makes a title. A <code>-</code> makes a bullet. <code>**two stars**</code> make bold. You already know enough.</p></div>
+        <div class="card"><h3>🤖 AI speaks it natively</h3><p>AI reads and writes markdown better than anything else. Hand an AI a <code>.md</code> file and it knows exactly what you mean.</p></div>
+        <div class="card"><h3>📦 It's portable</h3><p>Write it once, paste it into ChatGPT, Claude, Gemini — any AI, any time. Your plan goes wherever you go.</p></div>
+      </div>
+
+      <div class="decoder" style="margin-bottom:28px">
+        <span class="label" style="margin-bottom:4px">you type → you get</span>
+        <div class="row2"><div># My Plan</div><span>→</span><div><b style="font-size:1.25rem">My Plan</b> <span class="muted small">(big title)</span></div></div>
+        <div class="row2"><div>## This Week</div><span>→</span><div><b>This Week</b> <span class="muted small">(smaller heading)</span></div></div>
+        <div class="row2"><div>- get my ID</div><span>→</span><div>• get my ID</div></div>
+        <div class="row2"><div>- [ ] call the clinic</div><span>→</span><div>☐ call the clinic <span class="muted small">(checkbox)</span></div></div>
+        <div class="row2"><div>**important**</div><span>→</span><div><b>important</b></div></div>
+      </div>
+
+      <div class="md-app">
+        <div class="left">
+          <div class="pane-h"><span>my-plan.md · type here</span><span class="btn-row" style="gap:6px">
+            <button class="copy" type="button" id="mdReset">↺ Example</button>
+            <button class="copy" type="button" id="mdDownload">↓ Save .md</button></span></div>
+          <div class="md-tools" aria-label="Insert">
+            <button type="button" data-ins="# ">#&nbsp;Title</button>
+            <button type="button" data-ins="## ">##&nbsp;Heading</button>
+            <button type="button" data-ins="- ">-&nbsp;Bullet</button>
+            <button type="button" data-ins="- [ ] ">-&nbsp;[&nbsp;]&nbsp;Checkbox</button>
+            <button type="button" data-wrap="**">**Bold**</button>
+            <button type="button" data-wrap="`">`code`</button>
+          </div>
+          <textarea id="mdIn" spellcheck="false" aria-label="Markdown input"></textarea>
+        </div>
+        <div>
+          <div class="pane-h"><span>what it looks like</span><span class="tag green">live</span></div>
+          <div class="rendered" id="mdOut"></div>
+        </div>
+      </div>
+      <div class="tip" style="margin-top:20px"><b>Why we use it:</b><p>When you ask AI to “create a markdown file,” you get a clean, organized document you can save, edit, and hand to the next AI. It's the difference between a pile of sticky notes and a folder with labels.</p></div>
+    </div></section>
+
+    <!-- ========== 02 FOLDERS ========== -->
+    <section class="demo" id="folders"><div class="wrap">
+      <div class="demo-head">
+        <span class="label"><span class="n">02</span> / files &amp; folders</span>
+        <h2>Why we put files in folders.</h2>
+        <p>A <b>file</b> is one piece of paper. A <b>folder</b> is a labeled envelope that holds papers. Folders can go inside folders. That's the whole idea — and it's how you find anything in 10 seconds instead of 10 minutes.</p>
+      </div>
+      <div class="explain">
+        <div class="card"><h3>📄 File</h3><p>One thing: your resume, a letter, a plan. Ends in a type, like <code>.md</code>, <code>.pdf</code> or <code>.jpg</code>.</p></div>
+        <div class="card"><h3>📁 Folder</h3><p>A container with a name. <code>Jobs</code>, <code>ID &amp; Papers</code>, <code>Goals</code>. Put related files together.</p></div>
+        <div class="card"><h3>🧭 Path</h3><p>The address of a file: <code>My Life / Jobs / resume.md</code>. Like a street address, but for your stuff.</p></div>
+        <div class="card"><h3>🤖 Why AI cares</h3><p>One project = one folder. Builder AIs (like Claude Code) read a whole folder at once and understand your whole project.</p></div>
+      </div>
+
+      <div class="fx" id="fx">
+        <div class="fx-side">
+          <div class="pane-h" style="display:flex;justify-content:space-between;align-items:center;padding:10px 14px;border-bottom:1px solid var(--line);font:500 12.5px/1 var(--mono);color:var(--faint)">
+            <span>explorer</span>
+            <span class="btn-row" style="gap:6px"><button class="copy" type="button" id="fxDemo">⚡ Build example</button><button class="copy" type="button" id="fxClear">Clear</button></span>
+          </div>
+          <ul class="fx-tree" id="fxTree" role="tree"></ul>
+        </div>
+        <div class="fx-main">
+          <div class="fx-path" id="fxPath"></div>
+          <div class="fx-body" id="fxBody"></div>
+          <form class="fx-actions" id="fxForm">
+            <input type="text" id="fxName" placeholder="Name it… e.g. Jobs or resume.md" aria-label="New item name" autocomplete="off">
+            <button class="btn btn-ghost btn-sm" type="submit" data-kind="dir">📁 New folder</button>
+            <button class="btn btn-dark btn-sm" type="submit" data-kind="file">📄 New file</button>
+          </form>
+        </div>
+      </div>
+      <p class="muted small" style="margin-top:12px">Click a folder to open it. Make a folder, then make files inside it. Click a file to write in it. Hit <b>⚡ Build example</b> to watch a real setup get made.</p>
+    </div></section>
+
+    <!-- ========== 03 HANDOFF ========== -->
+    <section class="demo" id="handoff"><div class="wrap">
+      <div class="demo-head">
+        <span class="label"><span class="n">03</span> / the handoff · prompt #1</span>
+        <h2>Talk messy. Get a plan. Get it built.</h2>
+        <p>You don't need to know how to build anything. You need to know how to <b>describe</b> it. Here's the trick: one AI turns your messy thoughts into a clean markdown plan. A fresh AI reads that plan and builds it in one shot.</p>
+      </div>
+      <div class="codebox" style="margin-bottom:22px;max-width:760px">
+        <div class="codebox-head">the prompt <button class="copy" type="button" data-copy><span class="copy-label">Copy</span></button></div>
+        <pre>Create a markdown file about what I'm about to say, so the next bot will build it for me in one shot.</pre>
+      </div>
+      <div class="scenario-pick" id="hoPick"></div>
+      <div class="pipe">
+        <div class="stage" id="st1"><div class="stage-h"><span class="n">1</span> You talk (messy is fine)</div><div class="stage-b" id="st1b"></div></div>
+        <div class="stage" id="st2"><div class="stage-h"><span class="n">2</span> AI #1 writes plan.md</div><div class="stage-b"><pre id="st2b"></pre></div></div>
+        <div class="stage" id="st3"><div class="stage-h"><span class="n">3</span> AI #2 builds it</div><div class="stage-b" id="st3b" style="padding:0"></div></div>
+      </div>
+      <div class="pipe-ctrl">
+        <button class="btn btn-primary" type="button" id="hoNext">Next step →</button>
+        <button class="btn btn-ghost" type="button" id="hoReplay">↺ Start over</button>
+        <span class="mono small muted" id="hoHint"></span>
+      </div>
+      <div class="tip good" style="margin-top:22px"><b>Why a fresh chat?</b><p>Long chats get cluttered and the AI starts forgetting the early stuff. A clean plan file in a brand-new chat = the AI sees exactly what matters, nothing else.</p></div>
+    </div></section>
+
+    <!-- ========== 04 CODE BLOCK ========== -->
+    <section class="demo" id="codeblock"><div class="wrap">
+      <div class="demo-head">
+        <span class="label"><span class="n">04</span> / code blocks · prompt #2</span>
+        <h2>“Write this in a code block for me.”</h2>
+        <p>A code block is a gray box that keeps text <b>exactly</b> as-is and gives you a <b>copy button</b>. You don't have to write code to use it. It's just the cleanest way to grab something and paste it somewhere else.</p>
+      </div>
+      <div class="toggle" id="cbTabs"><button class="on" type="button" data-m="0">Without code block</button><button type="button" data-m="1">With code block</button></div>
+      <div class="window" style="max-width:760px;margin-top:18px">
+        <div class="window-bar"><div class="lights"><i></i><i></i><i></i></div><div class="window-title">chat</div></div>
+        <div class="chat" style="min-height:0" id="cbChat"></div>
+      </div>
+      <p class="muted" style="margin-top:16px;max-width:46em" id="cbNote"></p>
+    </div></section>
+
+    <!-- ========== 05 MISSING ========== -->
+    <section class="demo" id="missing"><div class="wrap">
+      <div class="demo-head">
+        <span class="label"><span class="n">05</span> / blind-spot check · prompt #3</span>
+        <h2>“What am I missing from this, and why is it important?”</h2>
+        <p>Everyone has blind spots. This one sentence catches them before they cost you. Pick a plan, then ask.</p>
+      </div>
+      <div class="scenario-pick" id="msPick"></div>
+      <div class="grid grid-2">
+        <div>
+          <div class="codebox"><div class="codebox-head">my plan</div><pre id="msPlan"></pre></div>
+          <div class="codebox" style="margin-top:12px"><div class="codebox-head">+ add this line <button class="copy" type="button" data-copy><span class="copy-label">Copy</span></button></div><pre>What am I missing from this, and why is it important?</pre></div>
+          <button class="btn btn-primary" type="button" id="msGo" style="margin-top:14px">Ask the question →</button>
+        </div>
+        <div>
+          <span class="label">example AI answer</span>
+          <div class="missing-list" id="msOut"><p class="muted" style="margin:10px 0 0">Press the button to see what a good AI answer looks like.</p></div>
+        </div>
+      </div>
+    </div></section>
+
+    <section class="section tight"><div class="wrap">
+      <div class="banner">
+        <h2 style="margin-bottom:12px">Want to do this live, together?</h2>
+        <p>These demos are what we run in workshops — on a big screen, with everyone following along on their own phone.</p>
+        <div class="btn-row" style="margin-top:22px"><a class="btn btn-primary" href="workshops.html">Bring a workshop to your program →</a><a class="btn btn-ghost" href="cheatsheets.html">Print the cheat sheets</a></div>
+      </div>
+    </div></section>
+  </main>
+
+  <footer class="footer"><div class="wrap">
+    <div>
+      <a class="logo" href="index.html"><span class="logo-mark">ai</span>aictuallyhelp</a>
+      <p style="margin-top:14px">A free, hands-on way to learn AI — built for people starting over. Not a product. Not a pitch.</p>
+    </div>
+    <div><h4>Learn</h4><ul><li><a href="start.html">Start from zero</a></li><li><a href="prompts.html">Prompts</a></li><li><a href="lab.html">Demos</a></li></ul></div>
+    <div><h4>Print</h4><ul><li><a href="cheatsheets.html">Cheat sheets</a></li><li><a href="cheatsheets.html#flyer">Workshop flyer</a></li></ul></div>
+    <div><h4>Organizations</h4><ul><li><a href="workshops.html">Book a workshop</a></li><li><a href="mailto:Roman@aictuallyhelp.com">Roman@aictuallyhelp.com</a></li><li><a href="https://github.com/rawmware/aictuallyhelp">Source on GitHub</a></li></ul></div>
+  </div></footer>
+
+  <script src="assets/site.js"></script>
+  <script src="assets/lab.js"></script>
+</body>
+</html>
