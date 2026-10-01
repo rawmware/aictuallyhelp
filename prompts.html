@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Prompt library — AI Actually Help</title>
+  <meta name="description" content="30+ copy-paste AI prompts in plain English: jobs, resumes, letters, budgets, learning, building websites. Works in ChatGPT, Claude and Gemini.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+  <header class="topbar"><div class="wrap">
+    <a class="logo" href="index.html"><span class="logo-mark">ai</span>aictuallyhelp<span class="cursor">_</span></a>
+    <nav class="nav" aria-label="Main">
+      <a href="start.html">Start from zero</a>
+      <a href="prompts.html" aria-current="page">Prompts</a>
+      <a href="lab.html">Demos</a>
+      <a href="cheatsheets.html">Cheat sheets</a>
+      <a href="workshops.html" class="nav-cta">Book a workshop</a>
+    </nav>
+  </div></header>
+
+  <main>
+    <section class="page-head"><div class="wrap">
+      <span class="label"><span class="n">~/prompts</span> · <span id="count">30</span> prompts</span>
+      <h1>Copy. Paste. Done.</h1>
+      <p class="lead">Prompts that actually work, in plain English. Anything in <span class="blank">[BRACKETS]</span> is where you fill in your own info. Works in ChatGPT, Claude and Gemini.</p>
+    </div></section>
+
+    <div class="toolbar"><div class="wrap">
+      <div class="search"><input type="search" id="q" placeholder="Search — try “resume”, “letter”, “budget”…" aria-label="Search prompts"><kbd>/</kbd></div>
+      <div class="filters" id="filters" role="tablist"></div>
+    </div></div>
+
+    <div class="wrap"><div class="prompt-list" id="list" aria-live="polite"></div></div>
+
+    <section class="section soft" id="builder">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="label"><span class="n">tool</span> / prompt builder</span>
+          <h2>Fill in the blanks. Get a perfect prompt.</h2>
+          <p>Pick what you need, answer a few questions, copy the result. The more you tell the AI, the better it helps.</p>
+        </div>
+        <div class="builder">
+          <div class="card form" style="box-shadow:none">
+            <div class="field"><label for="goal">I need help with…</label><select id="goal"></select></div>
+            <div id="fields" style="display:grid;gap:14px"></div>
+            <div class="row">
+              <div class="field"><label for="tone">Sound</label>
+                <select id="tone"><option value="simple">Simple &amp; plain</option><option value="professional">Professional</option><option value="warm">Warm &amp; friendly</option></select></div>
+              <div class="field"><label for="fmt">Give it to me as</label>
+                <select id="fmt"><option value="code">A code block (easy to copy)</option><option value="bullets">Short bullet points</option><option value="steps">Numbered steps</option></select></div>
+            </div>
+            <label class="check" style="margin-top:4px"><input type="checkbox" id="askFirst" checked> Ask me questions first if anything's unclear</label>
+          </div>
+          <div>
+            <div class="codebox" style="background:#fff;box-shadow:var(--shadow-lg)">
+              <div class="codebox-head">your prompt · live <button class="copy" type="button" data-copy data-copy-from="#built"><span class="copy-label">Copy prompt</span></button></div>
+              <pre id="built" style="min-height:260px"></pre>
+            </div>
+            <p class="muted small" style="margin-top:12px">Nothing here is saved or sent anywhere. It's built right on your device.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer"><div class="wrap">
+    <div>
+      <a class="logo" href="index.html"><span class="logo-mark">ai</span>aictuallyhelp</a>
+      <p style="margin-top:14px">A free, hands-on way to learn AI — built for people starting over. Not a product. Not a pitch.</p>
+    </div>
+    <div><h4>Learn</h4><ul><li><a href="start.html">Start from zero</a></li><li><a href="prompts.html">Prompts</a></li><li><a href="lab.html">Demos</a></li></ul></div>
+    <div><h4>Print</h4><ul><li><a href="cheatsheets.html">Cheat sheets</a></li><li><a href="cheatsheets.html#flyer">Workshop flyer</a></li></ul></div>
+    <div><h4>Organizations</h4><ul><li><a href="workshops.html">Book a workshop</a></li><li><a href="https://github.com/rawmware/aictuallyhelp">Source on GitHub</a></li></ul></div>
+  </div></footer>
+
+  <script src="assets/site.js"></script>
+  <script src="assets/prompts.js"></script>
+  <script>
+  (function () {
+    const { $, escapeHTML, markBlanks } = window.AH;
+    const P = window.PROMPTS, CATS = window.PROMPT_CATS;
+    const catName = Object.fromEntries(CATS.map(c => [c.id, c.name]));
+    let cat = "all";
+    const hashCat = location.hash.slice(1);
+    if (CATS.some(c => c.id === hashCat)) cat = hashCat;
+    $("#count").textContent = P.length;
+
+    const inCat = (p, c) => c === "all" || (c === "fame" ? p.fame : p.cat === c);
+    $("#filters").innerHTML = CATS.map(c =>
+      `<button type="button" data-c="${c.id}">${c.name}<span class="ct">${P.filter(p => inCat(p, c.id)).length}</span></button>`).join("");
+
+    function render() {
+      const q = $("#q").value.trim().toLowerCase();
+      [...$("#filters").children].forEach(b => b.classList.toggle("on", b.dataset.c === cat));
+      const items = P.filter(p => inCat(p, cat) && (!q || (p.title + " " + p.text + " " + p.when).toLowerCase().includes(q)));
+      $("#list").innerHTML = items.length ? items.map(p => `
+        <article class="pcard">
+          <div class="top">
+            <div class="meta">${p.fame ? '<span class="tag amber">★ top 3</span>' : ""}<span class="tag">${escapeHTML(catName[p.cat])}</span></div>
+            <h3>${escapeHTML(p.title)}</h3>
+          </div>
+          <pre>${markBlanks(p.text)}</pre>
+          <div class="when"><b style="color:var(--ink-2)">Use it when:</b> ${escapeHTML(p.when)}</div>
+          <div class="act">
+            <span class="mono small" style="color:var(--faint)">#${p.id}</span>
+            <button class="copy" type="button" data-copy="${escapeHTML(p.text)}"><span class="copy-label">Copy</span></button>
+          </div>
+        </article>`).join("")
+        : `<div class="empty">Nothing matches “${escapeHTML(q)}”. Try a simpler word — or use the <a href="#builder">prompt builder</a>.</div>`;
+    }
+    $("#filters").addEventListener("click", e => {
+      const b = e.target.closest("button"); if (!b) return;
+      cat = b.dataset.c; history.replaceState(null, "", cat === "all" ? location.pathname : "#" + cat); render();
+    });
+    $("#q").addEventListener("input", render);
+    document.addEventListener("keydown", e => {
+      if (e.key === "/" && !/INPUT|TEXTAREA|SELECT/.test(document.activeElement.tagName)) { e.preventDefault(); $("#q").focus(); }
+    });
+    render();
+
+    // ----- Builder -----
+    const goals = {
+      resume: { name: "Writing a resume", fields: [["job", "What kind of job do you want?", "warehouse, kitchen, retail…"], ["exp", "Jobs or work you've done (any kind counts)", "3 yrs at a car wash, babysitting, helped at church food bank"], ["extra", "Anything tricky? (gaps, record, no diploma)", "gap from 2022 to 2024"]],
+        make: v => `Help me write a resume for ${v.job || "[KIND OF JOB]"} jobs.\n\nMy work experience: ${v.exp || "[YOUR JOBS AND SKILLS]"}${v.extra ? `\nSomething to handle carefully: ${v.extra}. Help me explain it honestly and in a positive way.` : ""}\n\nMake it one page. Use strong, simple action words. Don't make anything up.` },
+      message: { name: "A message or email to someone", fields: [["who", "Who is it to?", "my landlord"], ["about", "What's it about?", "the heater has been broken for 2 weeks"], ["want", "What do you want to happen?", "fix it by Friday"]],
+        make: v => `Help me write a short message to ${v.who || "[WHO]"}.\n\nWhat it's about: ${v.about || "[THE SITUATION]"}\nWhat I want: ${v.want || "[WHAT YOU WANT TO HAPPEN]"}\n\nKeep it calm, clear and respectful. Under 120 words.` },
+      letter: { name: "Understanding a letter or form", fields: [["from", "Who's it from?", "the county, a court, my bank…"], ["text", "Paste the letter (or say you'll attach a photo)", "I'll attach a photo"]],
+        make: v => `Explain this letter${v.from ? ` from ${v.from}` : ""} in plain English.\n1. What is it about?\n2. What do they want me to do?\n3. What's the deadline?\n4. What happens if I don't?\n5. What should I do next?\n\nLetter: ${v.text || "[PASTE IT OR ATTACH A PHOTO]"}` },
+      interview: { name: "Practicing for an interview", fields: [["job", "What's the job?", "line cook at a diner"], ["worry", "What are you nervous about?", "explaining why I left my last job"]],
+        make: v => `Pretend you're hiring for a ${v.job || "[JOB]"} position. Interview me one question at a time and wait for my answer.\nAfter each answer, tell me one thing I did well and one thing to improve.${v.worry ? `\nMake sure to ask me about: ${v.worry}. Help me answer it well.` : ""}\nAt the end, give me my top 3 tips.` },
+      plan: { name: "Planning something / a goal", fields: [["goal", "What's the goal?", "get my own apartment"], ["when", "By when?", "in 6 months"], ["now", "Where are you starting from?", "staying at a shelter, part-time job, $400 saved"]],
+        make: v => `Help me make a realistic plan to ${v.goal || "[YOUR GOAL]"}${v.when ? ` ${v.when}` : ""}.\n\nWhere I'm starting: ${v.now || "[YOUR SITUATION]"}\n\nBreak it into small weekly steps. Tell me what could go wrong and how to handle it. What am I missing, and why is it important?` },
+      build: { name: "Building a website or app", fields: [["idea", "What do you want to build?", "a page for my mobile car detailing business"], ["who", "Who's it for?", "people in my neighborhood"], ["must", "Must-haves", "prices, photos, a call button"]],
+        make: v => `I want to build ${v.idea || "[YOUR IDEA]"} for ${v.who || "[WHO IT'S FOR]"}.\nMust have: ${v.must || "[MUST-HAVES]"}\n\nCreate a markdown file about this, so the next bot will build it for me in one shot.` },
+    };
+    const fmtLine = { code: "Put the final result in a code block.", bullets: "Use short bullet points.", steps: "Use numbered steps." };
+    const toneLine = { simple: "Use simple, everyday words.", professional: "Keep the tone professional.", warm: "Keep the tone warm and friendly." };
+    $("#goal").innerHTML = Object.entries(goals).map(([k, g]) => `<option value="${k}">${g.name}</option>`).join("");
+    function drawFields() {
+      const g = goals[$("#goal").value];
+      $("#fields").innerHTML = g.fields.map(([id, label, ph]) =>
+        `<div class="field"><label for="f_${id}">${escapeHTML(label)}</label><input type="text" id="f_${id}" data-k="${id}" placeholder="e.g. ${escapeHTML(ph)}" autocomplete="off"></div>`).join("");
+      build();
+    }
+    function build() {
+      const g = goals[$("#goal").value], v = {};
+      document.querySelectorAll("#fields input").forEach(i => v[i.dataset.k] = i.value.trim());
+      let out = g.make(v) + `\n\n${toneLine[$("#tone").value]} ${fmtLine[$("#fmt").value]}`;
+      if ($("#askFirst").checked) out += `\nBefore you answer, ask me any questions you need.`;
+      $("#built").innerHTML = markBlanks(out);
+    }
+    $("#goal").addEventListener("change", drawFields);
+    $("#fields").addEventListener("input", build);
+    ["#tone", "#fmt", "#askFirst"].forEach(s => $(s).addEventListener("change", build));
+    drawFields();
+  })();
+  </script>
+</body>
+</html>
