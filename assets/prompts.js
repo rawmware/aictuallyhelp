@@ -106,6 +106,7 @@
     // ---------- Build stuff ----------
     ["build", "Plan a website", "I want a simple website for [YOUR IDEA, e.g. my lawn care business]. Ask me questions one at a time. Then create a markdown file with everything a builder needs to make it in one shot."],
     ["build", "Build a website in one file", "Build this as a single HTML file I can save and open in my browser. Put the whole file in one code block.\n\n[PASTE YOUR MARKDOWN PLAN]", "Save the result as index.html and double-click it."],
+    ["build", "Put my website online with my own domain", "I have a website file (index.html). Walk me through putting it online one step at a time: upload it to a free GitHub repository, connect GitHub to Vercel so it goes live, then connect a domain I buy (like mysite.com) to Vercel. Wait for me to say “done” before each next step.", "Full guide: the “Make a website” page on this site."],
     ["build", "Fix something that broke", "It's not working. Here's what I see:\n[PASTE THE ERROR, OR DESCRIBE WHAT HAPPENS]\n\nExplain what's wrong in simple words, then give me the fixed version in a code block."],
     ["build", "Plan an app idea", "I have an idea for an app that [WHAT IT DOES]. Ask me 5 questions, then write a markdown file describing it so another AI can build it."],
     ["build", "Make a tracker for my phone", "Make me a simple tracker as a single HTML file I can open on my phone, for tracking [HABITS / MONEY / JOB APPLICATIONS]. Save the data on my device. Put it in one code block."],

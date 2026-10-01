@@ -11,6 +11,7 @@ AI ACTUALLY HELP IS A PASSION PROJECT I CREATED WITH HOPES OF IT BEING A PLATFOR
 | `prompts.html` | The prompt library plus a fill-in-the-blanks prompt builder |
 | `lab.html` | Hands-on demos: live markdown editor, files & folders explorer, the markdown handoff, code blocks, "what am I missing?" |
 | `cheatsheets.html` | Printable one-page sheets (letter size) and a fill-in workshop flyer |
+| `website.html` | Make a real website right now: one copy-paste master prompt, then GitHub, domains, Vercel, and connecting them, step by step |
 | `workshops.html` | For nonprofits: session agenda, FAQ, about, and a request form that writes the email for you |
 
 ## Run it
