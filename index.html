@@ -15,7 +15,8 @@
     <a class="logo" href="index.html"><span class="logo-mark">ai</span>aictuallyhelp<span class="cursor">_</span></a>
     <nav class="nav" aria-label="Main">
       <a href="#library">Prompts</a>
-      <a href="#explain">What's an agent?</a>
+      <a href="#agent">What's an agent?</a>
+      <a href="words.html">AI words</a>
       <a href="start.html">New to AI</a>
       <a href="website.html">Make a website</a>
       <a href="lab.html">Demos</a>
@@ -79,6 +80,24 @@
           <p>Want more? Copy the prompt under each one. Your AI will explain it as many times as you need, no judgment.</p>
         </div>
         <div class="grid grid-3" id="concepts"></div>
+
+        <div id="agent" style="margin-top:72px;scroll-margin-top:80px">
+          <div class="section-head" style="margin-bottom:22px">
+            <span class="label"><span class="n">03b</span> / what's an agent? watch one work</span>
+            <h2>An agent is AI that does the steps for you.</h2>
+            <p>A chatbot answers. An agent <b>acts</b>: it searches, opens pages, reads files, writes code, checks its work, and keeps going until the job is done. Press play and watch the loop.</p>
+          </div>
+          <div id="agentDemo"></div>
+        </div>
+
+        <div style="margin-top:64px">
+          <div class="section-head" style="margin-bottom:22px">
+            <span class="label"><span class="n">03c</span> / how engineers talk to agents</span>
+            <h2>The phrases that make agents work better.</h2>
+            <p>This is how people who build with AI actually tell agents what to do. Each one is ready to copy. <a href="words.html">See all the AI words →</a></p>
+          </div>
+          <div class="grid grid-3" id="agentWords"></div>
+        </div>
       </div>
     </section>
 
@@ -135,7 +154,7 @@
       <a class="logo" href="index.html"><span class="logo-mark">ai</span>aictuallyhelp</a>
       <p style="margin-top:14px">A free, hands-on way to learn AI — built for people starting over. Not a product. Not a pitch.</p>
     </div>
-    <div><h4>Learn</h4><ul><li><a href="index.html#library">All prompts</a></li><li><a href="start.html">New to AI</a></li><li><a href="website.html">Make a website</a></li><li><a href="prompts.html">Prompt builder</a></li><li><a href="lab.html">Demos</a></li></ul></div>
+    <div><h4>Learn</h4><ul><li><a href="index.html#library">All prompts</a></li><li><a href="words.html">AI words, decoded</a></li><li><a href="start.html">New to AI</a></li><li><a href="website.html">Make a website</a></li><li><a href="prompts.html">Prompt builder</a></li><li><a href="lab.html">Demos</a></li></ul></div>
     <div><h4>Print</h4><ul><li><a href="cheatsheets.html">Cheat sheets</a></li><li><a href="cheatsheets.html#flyer">Workshop flyer</a></li></ul></div>
     <div><h4>Organizations</h4><ul><li><a href="workshops.html">Book a workshop</a></li><li><a href="mailto:Roman@aictuallyhelp.com">Roman@aictuallyhelp.com</a></li><li><a href="https://github.com/rawmware/aictuallyhelp">Source on GitHub</a></li></ul></div>
   </div></footer>
@@ -143,6 +162,8 @@
   <script src="assets/site.js"></script>
   <script src="assets/prompts.js"></script>
   <script src="assets/library.js"></script>
+  <script src="assets/words.js"></script>
+  <script src="assets/agent.js"></script>
   <script>
   (function () {
     const { $, escapeHTML, markBlanks, promptCard, mountLibrary, mountFlip } = window.AH;
@@ -169,6 +190,10 @@
       ["What's an LLM?", "Large Language Model: the engine inside AI chatbots. It predicts what words should come next, really, really well.", "Explain what a large language model (LLM) is like I'm new to tech. Use one simple analogy."],
       ["What's Claude Code?", "An AI agent for building software. You describe what you want in plain English, and it writes and runs the code.", "Explain what Claude Code is and what an “AI coding agent” does, in simple words. Could a beginner with no coding experience use one? What would they need?"],
     ];
+    window.AH.mountAgent($("#agentDemo"));
+    $("#agentWords").innerHTML = window.WORDS.filter(w => w.g === "agents" && w.t !== "Agent").map(w => `
+      <article class="card concept" style="box-shadow:none"><h3>${escapeHTML(w.t)}</h3><p>${escapeHTML(w.what)}</p>${w.hist ? `<p class="small muted" style="margin:0">${escapeHTML(w.hist)}</p>` : ""}${box(w.p).replace("ask your AI", "prompt")}</article>`).join("");
+
     $("#concepts").innerHTML = concepts.map(([h, p, q]) => `<article class="card concept" style="box-shadow:none"><h3>${escapeHTML(h)}</h3><p>${escapeHTML(p)}</p>${box(q)}</article>`).join("");
 
     const sources = [

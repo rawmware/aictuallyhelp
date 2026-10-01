@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI words, decoded — AI Actually Help</title>
+  <meta name="description" content="The words engineers use with AI, explained simply: agents, subagents, orchestration, MCP, connectors, plugins, skills, scraping, Claude Code, Codex and more. Each with a copy-paste prompt, plus prompt advice from the people who build AI.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+  <header class="topbar"><div class="wrap">
+    <a class="logo" href="index.html"><span class="logo-mark">ai</span>aictuallyhelp<span class="cursor">_</span></a>
+    <nav class="nav" aria-label="Main">
+      <a href="index.html#library">Prompts</a>
+      <a href="index.html#agent">What's an agent?</a>
+      <a href="words.html" aria-current="page">AI words</a>
+      <a href="start.html">New to AI</a>
+      <a href="website.html">Make a website</a>
+      <a href="lab.html">Demos</a>
+      <a href="cheatsheets.html">Cheat sheets</a>
+      <a href="workshops.html" class="nav-cta">Book a workshop</a>
+    </nav>
+  </div></header>
+
+  <main>
+    <section class="hero" style="padding-bottom:64px">
+      <div class="wrap hero-grid">
+        <div>
+          <span class="label"><span class="n">~/words</span> · <span id="nWords">40+</span> terms · every one with a prompt</span>
+          <h1 style="font-size:clamp(2.2rem,5.4vw,3.6rem)">AI words, <span class="grad">decoded.</span></h1>
+          <p class="lead">Agent. Subagent. MCP. Connector. Plugin. Scrape. Codex. The words engineers throw around, each in a sentence or two, with a prompt you can copy to actually use it.</p>
+          <div class="btn-row">
+            <a class="btn btn-primary" href="#glossary">Decode the words <span class="arrow">↓</span></a>
+            <a class="btn btn-ghost" href="#pros">Prompts from the pros</a>
+          </div>
+          <div class="how3"><span>flip book → engineering &amp; pro prompts</span></div>
+        </div>
+        <div class="flip" id="flip" aria-label="Rotating engineering prompts"></div>
+      </div>
+    </section>
+
+    <!-- GLOSSARY -->
+    <section id="glossary" class="section soft" style="padding-top:64px">
+      <div class="wrap">
+        <div class="section-head" style="margin-bottom:24px">
+          <span class="label"><span class="n">01</span> / the glossary</span>
+          <h2>What it means, and the prompt to use it.</h2>
+          <p>Dates and history are checked against the original sources (listed at the bottom).</p>
+        </div>
+        <div class="search" style="margin-bottom:12px"><input type="search" id="wq" placeholder="Search a word — “agent”, “MCP”, “scrape”, “Codex”…" aria-label="Search words"><kbd>/</kbd></div>
+        <div class="filters" id="wf" style="margin-bottom:24px"></div>
+        <div class="grid grid-3" id="words" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <!-- PROS -->
+    <section id="pros" class="section">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="label"><span class="n">02</span> / prompts from the people who build AI</span>
+          <h2>What the experts actually say about prompting.</h2>
+          <p>Not our opinion. This is published advice from OpenAI, Anthropic and well-known AI researchers, turned into templates you can copy.</p>
+        </div>
+        <div class="grid grid-2" id="proList"></div>
+      </div>
+    </section>
+
+    <!-- SOURCES -->
+    <section id="sources" class="section soft">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="label"><span class="n">03</span> / sources</span>
+          <h2>Where this comes from.</h2>
+          <p>Want to go deeper? Paste any of these links into your AI and ask: “Explain this to me in simple words.”</p>
+        </div>
+        <ul class="src-list">
+          <li><a href="https://arxiv.org/abs/1706.03762" target="_blank" rel="noopener">Attention Is All You Need</a> — Vaswani et al., Google, 2017</li>
+          <li><a href="https://arxiv.org/abs/2005.11401" target="_blank" rel="noopener">Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks</a> — Lewis et al., 2020</li>
+          <li><a href="https://arxiv.org/abs/2201.11903" target="_blank" rel="noopener">Chain-of-Thought Prompting Elicits Reasoning in Large Language Models</a> — Wei et al., 2022</li>
+          <li><a href="https://arxiv.org/abs/2210.03629" target="_blank" rel="noopener">ReAct: Synergizing Reasoning and Acting in Language Models</a> — Yao et al., 2022</li>
+          <li><a href="https://www.anthropic.com/research/building-effective-agents" target="_blank" rel="noopener">Building effective agents</a> — Anthropic, Dec 2024</li>
+          <li><a href="https://www.anthropic.com/engineering/multi-agent-research-system" target="_blank" rel="noopener">How we built our multi-agent research system</a> — Anthropic, June 2025</li>
+          <li><a href="https://www.anthropic.com/engineering/claude-code-best-practices" target="_blank" rel="noopener">Claude Code: Best practices for agentic coding</a> — Anthropic, 2025</li>
+          <li><a href="https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview" target="_blank" rel="noopener">Prompt engineering overview</a> — Anthropic docs</li>
+          <li><a href="https://platform.openai.com/docs/guides/prompt-engineering" target="_blank" rel="noopener">Prompt engineering guide</a> — OpenAI docs</li>
+          <li><a href="https://www.inc.com/jessica-stillman/how-to-write-the-perfect-ai-prompt-according-to-openai-president-greg-brockman/91150209" target="_blank" rel="noopener">How to write the perfect AI prompt, according to Greg Brockman</a> — Inc., 2025</li>
+          <li><a href="https://x.com/karpathy/status/1937902205765607626" target="_blank" rel="noopener">“+1 for ‘context engineering’ over ‘prompt engineering’”</a> — Andrej Karpathy, June 2025</li>
+          <li><a href="https://www.anthropic.com/news/model-context-protocol" target="_blank" rel="noopener">Introducing the Model Context Protocol</a> — Anthropic, Nov 2024</li>
+          <li><a href="https://www.anthropic.com/news/claude-3-7-sonnet" target="_blank" rel="noopener">Claude 3.7 Sonnet and Claude Code</a> — Anthropic, Feb 2025</li>
+          <li><a href="https://www.anthropic.com/news/claude-code-plugins" target="_blank" rel="noopener">Customize Claude Code with plugins</a> — Anthropic, Oct 2025</li>
+          <li><a href="https://claude.com/blog/skills" target="_blank" rel="noopener">Introducing Agent Skills</a> — Anthropic, Oct 2025</li>
+          <li><a href="https://openai.com/index/introducing-codex/" target="_blank" rel="noopener">Introducing Codex</a> — OpenAI, May 2025</li>
+          <li><a href="https://en.wikipedia.org/wiki/Vibe_coding" target="_blank" rel="noopener">Vibe coding</a> — Wikipedia (term coined by Andrej Karpathy, Feb 2025)</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer"><div class="wrap">
+    <div>
+      <a class="logo" href="index.html"><span class="logo-mark">ai</span>aictuallyhelp</a>
+      <p style="margin-top:14px">A free, hands-on way to learn AI — built for people starting over. Not a product. Not a pitch.</p>
+    </div>
+    <div><h4>Learn</h4><ul><li><a href="index.html#library">All prompts</a></li><li><a href="words.html">AI words, decoded</a></li><li><a href="start.html">New to AI</a></li><li><a href="website.html">Make a website</a></li><li><a href="prompts.html">Prompt builder</a></li><li><a href="lab.html">Demos</a></li></ul></div>
+    <div><h4>Print</h4><ul><li><a href="cheatsheets.html">Cheat sheets</a></li><li><a href="cheatsheets.html#flyer">Workshop flyer</a></li></ul></div>
+    <div><h4>Organizations</h4><ul><li><a href="workshops.html">Book a workshop</a></li><li><a href="mailto:Roman@aictuallyhelp.com">Roman@aictuallyhelp.com</a></li><li><a href="https://github.com/rawmware/aictuallyhelp">Source on GitHub</a></li></ul></div>
+  </div></footer>
+
+  <script src="assets/site.js"></script>
+  <script src="assets/prompts.js"></script>
+  <script src="assets/library.js"></script>
+  <script src="assets/words.js"></script>
+  <script>
+  (function () {
+    const { $, escapeHTML, markBlanks, mountFlip } = window.AH;
+    const W = window.WORDS, G = window.WORD_GROUPS, P = window.PROMPTS;
+    $("#nWords").textContent = W.length;
+
+    mountFlip($("#flip"), { filter: p => p.cat === "eng" || p.cat === "pros" });
+
+    const box = (text, head = "prompt") => `<div class="codebox"><div class="codebox-head"><span>${head}</span><button class="copy" type="button" data-copy><span class="copy-label">Copy</span></button></div><pre>${markBlanks(text)}</pre></div>`;
+    const slug = s => s.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+    const gName = Object.fromEntries(G.map(g => [g.id, g.name]));
+
+    // ----- Glossary -----
+    let g = "all";
+    $("#wf").innerHTML = [{ id: "all", name: "All" }].concat(G).map(x =>
+      `<button type="button" data-g="${x.id}">${x.name}<span class="ct">${x.id === "all" ? W.length : W.filter(w => w.g === x.id).length}</span></button>`).join("");
+    function render() {
+      const q = $("#wq").value.trim().toLowerCase();
+      [...$("#wf").children].forEach(b => b.classList.toggle("on", b.dataset.g === g));
+      const items = W.filter(w => (g === "all" || w.g === g) && (!q || (w.t + " " + w.what + " " + (w.hist || "")).toLowerCase().includes(q)));
+      $("#words").innerHTML = items.length ? items.map(w => `
+        <article class="card word" id="${slug(w.t)}" style="box-shadow:none">
+          <span class="tag">${escapeHTML(gName[w.g])}</span>
+          <h3>${escapeHTML(w.t)}</h3>
+          <p class="what">${escapeHTML(w.what)}</p>
+          ${w.hist ? `<p class="hist">${escapeHTML(w.hist)}</p>` : ""}
+          ${box(w.p)}
+        </article>`).join("")
+        : `<div class="empty">No word matches “${escapeHTML(q)}”. Ask your AI: “What does ${escapeHTML(q)} mean in AI? Explain simply.”</div>`;
+    }
+    $("#wf").addEventListener("click", e => { const b = e.target.closest("button"); if (b) { g = b.dataset.g; render(); } });
+    $("#wq").addEventListener("input", render);
+    document.addEventListener("keydown", e => {
+      if (e.key === "/" && !/INPUT|TEXTAREA|SELECT/.test(document.activeElement.tagName)) { e.preventDefault(); $("#wq").focus(); }
+    });
+    render();
+    if (location.hash) { const el = document.getElementById(location.hash.slice(1)); if (el) el.scrollIntoView(); }
+
+    // ----- Pros -----
+    const byTitle = t => (P.find(p => p.title === t) || {}).text || "";
+    const pros = [
+      { who: "Greg Brockman · President, OpenAI · Feb 2025",
+        h: "The anatomy of a prompt: goal, return format, warnings, context",
+        p: "Brockman shared a four-part prompt structure, originally written by engineer Ben Hylak for OpenAI's o1 reasoning model. His example asked for lesser-known hikes near San Francisco, spelled out exactly what to return for each hike, warned the model to make sure every trail really exists, then dumped personal context at the end. Some teams found it doesn't beat simpler prompts on every task, so use it for long, detailed requests.",
+        t: byTitle("The 4-part prompt: goal, return format, warnings, context") },
+      { who: "Anthropic · Prompt engineering docs",
+        h: "Be clear and direct. Treat it like a brilliant new coworker.",
+        p: "Anthropic's guide says to explain the task the way you would to a smart new employee with no background: what it's for, who will read it, what a great result looks like, and the steps in order. Its other core tips: give examples, let the model think before answering, and use tags to separate instructions from material.",
+        t: byTitle("Be clear and direct (Anthropic's #1 tip)") },
+      { who: "OpenAI · Prompt engineering guide",
+        h: "Give reference text. Split big tasks. Give it time to think.",
+        p: "OpenAI's guide lays out a few strategies: write clear instructions, give reference text to answer from, split complex tasks into simpler steps, give the model time to “think,” use tools, and test changes. Answering from your own text is one of the best ways to cut down on made-up answers.",
+        t: byTitle("Answer only from my documents") },
+      { who: "Andrej Karpathy & Tobi Lütke · June 2025",
+        h: "Context engineering > prompt engineering",
+        p: "Shopify's CEO and AI researcher Andrej Karpathy argued the real skill isn't a clever sentence. It's filling the AI's context with exactly the right information: goal, background, examples, files and rules. Too little and it guesses; too much and it gets distracted.",
+        t: byTitle("Pack the context") },
+      { who: "Boris Cherny & Anthropic · Claude Code best practices",
+        h: "Explore, plan, code, commit. Use subagents.",
+        p: "The Claude Code team recommends having the agent read the relevant files first, make a plan you approve, then write code and commit. Claude Code's creator, Boris Cherny, also suggests adding “use subagents” when you want more effort on a problem, since each subagent works with its own fresh context.",
+        t: byTitle("Explore, plan, code, commit") },
+      { who: "Anthropic · Building effective agents · Dec 2024",
+        h: "Start simple. Add agents only when you need them.",
+        p: "Anthropic's agent guide found the most successful teams used simple, composable patterns rather than complex frameworks: chain prompts, route tasks, run work in parallel, use an orchestrator with workers, or have one AI check another's work. Only reach for a fully autonomous agent when the simple versions aren't enough.",
+        t: byTitle("Break a big job into small ones") },
+    ];
+    $("#proList").innerHTML = pros.map(x => `
+      <article class="card pro" style="box-shadow:none">
+        <span class="who">${escapeHTML(x.who)}</span>
+        <h3>${escapeHTML(x.h)}</h3>
+        <p>${escapeHTML(x.p)}</p>
+        ${box(x.t, "template")}
+      </article>`).join("");
+  })();
+  </script>
+</body>
+</html>
