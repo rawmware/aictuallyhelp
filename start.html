@@ -14,8 +14,10 @@
   <header class="topbar"><div class="wrap">
     <a class="logo" href="index.html"><span class="logo-mark">ai</span>aictuallyhelp<span class="cursor">_</span></a>
     <nav class="nav" aria-label="Main">
-      <a href="start.html" aria-current="page">Start from zero</a>
-      <a href="prompts.html">Prompts</a>
+      <a href="index.html#library">Prompts</a>
+      <a href="index.html#explain">What's an agent?</a>
+      <a href="start.html" aria-current="page">New to AI</a>
+      <a href="prompts.html">Prompt builder</a>
       <a href="lab.html">Demos</a>
       <a href="cheatsheets.html">Cheat sheets</a>
       <a href="workshops.html" class="nav-cta">Book a workshop</a>
@@ -67,7 +69,7 @@
             <li><div>Type your <b>first and last name</b>. Then your <b>birthday</b>.</div></li>
             <li><div>Pick your <b>email address</b>. Google will suggest some, or make your own. Need ideas? Use the tool below.</div></li>
             <li><div>Make a <b>password</b>. Long is better than weird. (Ideas below.)</div></li>
-            <li><div>Google might ask for a <b>phone number</b> to send you a code. If you don't have one, see the tip below.</div></li>
+            <li><div>Google might ask for a <b>phone number</b> to send you a code. Type yours and enter the code it texts you.</div></li>
             <li><div>Skip anything that says “optional.” Agree to the terms. <b>You're in.</b></div></li>
           </ol>
           <p class="muted small">Screens change sometimes, so yours may look a little different. That's normal — just keep going.</p>
@@ -93,7 +95,6 @@
             </div>
           </div>
 
-          <div class="tip warn"><b>No phone?</b><p>Ask shelter or library staff if you can use the center's number to get the code once. Or try <a href="https://signup.live.com" target="_blank" rel="noopener">Outlook.com</a> — also free, and works the same way.</p></div>
           <div class="tip"><b>Write it down.</b><p>Write your new email address on paper and keep it in your wallet. Keep your password somewhere safe and separate. Our <a href="cheatsheets.html#email">email cheat sheet</a> has a box for this.</p></div>
 
           <label class="check"><input type="checkbox"> I have an email</label>
@@ -123,12 +124,9 @@
         <div class="body">
           <span class="label">step 4 · 2 min</span>
           <h2>Send your first message</h2>
-          <p>Talk to it like you'd text a smart friend. No special words needed. Copy this, paste it in the message box, hit send:</p>
-          <div class="codebox" style="margin-top:12px"><div class="codebox-head">your first prompt <button class="copy" type="button" data-copy><span class="copy-label">Copy</span></button></div><pre>Hi. I'm new to this. Explain what you can help me with in 5 short bullet points. Use simple words.</pre></div>
-          <p style="margin-top:16px"><b>Then try something real.</b> Here's one that works for almost anything:</p>
-          <div class="codebox"><div class="codebox-head">let it interview you <button class="copy" type="button" data-copy><span class="copy-label">Copy</span></button></div><pre>Ask me questions one at a time until you understand what I need. Then help me with it.
-
-What I need help with: <span class="blank">[DESCRIBE IT IN A FEW WORDS]</span></pre></div>
+          <p>This is where it all starts. Talk to it like you'd text a smart friend. No special words needed. <b>Pick any prompt below, tap copy, paste it in the message box, hit send.</b></p>
+          <div class="prompt-list" id="firstPrompts" style="padding:12px 0 0;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr))"></div>
+          <p style="margin-top:18px"><a href="index.html#library">See all the prompts →</a></p>
           <div class="tip"><b>How to paste:</b><p>On a phone: press and hold in the message box → tap <b>Paste</b>. On a computer: <kbd>Ctrl</kbd> + <kbd>V</kbd> (or <kbd>⌘</kbd> + <kbd>V</kbd> on a Mac).</p></div>
           <label class="check"><input type="checkbox"> I sent my first message</label>
         </div>
@@ -193,15 +191,21 @@ What I need help with: <span class="blank">[DESCRIBE IT IN A FEW WORDS]</span></
       <a class="logo" href="index.html"><span class="logo-mark">ai</span>aictuallyhelp</a>
       <p style="margin-top:14px">A free, hands-on way to learn AI — built for people starting over. Not a product. Not a pitch.</p>
     </div>
-    <div><h4>Learn</h4><ul><li><a href="start.html">Start from zero</a></li><li><a href="prompts.html">Prompts</a></li><li><a href="lab.html">Demos</a></li></ul></div>
+    <div><h4>Learn</h4><ul><li><a href="index.html#library">All prompts</a></li><li><a href="start.html">New to AI</a></li><li><a href="prompts.html">Prompt builder</a></li><li><a href="lab.html">Demos</a></li></ul></div>
     <div><h4>Print</h4><ul><li><a href="cheatsheets.html">Cheat sheets</a></li><li><a href="cheatsheets.html#flyer">Workshop flyer</a></li></ul></div>
     <div><h4>Organizations</h4><ul><li><a href="workshops.html">Book a workshop</a></li><li><a href="mailto:Roman@aictuallyhelp.com">Roman@aictuallyhelp.com</a></li><li><a href="https://github.com/rawmware/aictuallyhelp">Source on GitHub</a></li></ul></div>
   </div></footer>
 
   <script src="assets/site.js"></script>
+  <script src="assets/prompts.js"></script>
+  <script src="assets/library.js"></script>
   <script>
   (function () {
     const { $, $$, escapeHTML, store, confetti } = window.AH;
+
+    // Step 4: easy first prompts.
+    const firsts = ["Send my very first message", "I don't know how to ask", "See what AI can do for me", "Write a professional email", "Understand a confusing letter", "Write a resume from scratch", "Talk instead of type", "Get something clean I can copy", "Catch what I didn't think of"];
+    $("#firstPrompts").innerHTML = firsts.map(t => window.PROMPTS.find(p => p.title === t)).filter(Boolean).map(window.AH.promptCard).join("");
     const KEY = "ah.start.v1";
     const steps = $$(".step");
     const state = store.get(KEY, {});

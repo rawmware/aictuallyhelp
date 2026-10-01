@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AI Actually Help — learn AI from zero</title>
-  <meta name="description" content="Free, hands-on AI lessons in plain English. Make an email, open ChatGPT or Claude, copy prompts that actually work, and print cheat sheets. In-person workshops for shelters and nonprofits.">
+  <title>AI Actually Help — copy a prompt, paste it, done</title>
+  <meta name="description" content="100+ free, real AI prompts for real life: emails, jobs, money, letters, websites. Tap copy, paste into ChatGPT, Claude or Gemini. Plus plain-English explainers and in-person workshops.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -14,8 +14,10 @@
   <header class="topbar"><div class="wrap">
     <a class="logo" href="index.html"><span class="logo-mark">ai</span>aictuallyhelp<span class="cursor">_</span></a>
     <nav class="nav" aria-label="Main">
-      <a href="start.html">Start from zero</a>
-      <a href="prompts.html">Prompts</a>
+      <a href="#library">Prompts</a>
+      <a href="#explain">What's an agent?</a>
+      <a href="start.html">New to AI</a>
+      <a href="prompts.html">Prompt builder</a>
       <a href="lab.html">Demos</a>
       <a href="cheatsheets.html">Cheat sheets</a>
       <a href="workshops.html" class="nav-cta">Book a workshop</a>
@@ -23,125 +25,83 @@
   </div></header>
 
   <main>
-    <!-- HERO -->
+    <!-- HERO + FLIP BOOK -->
     <section class="hero">
       <div class="wrap hero-grid">
         <div>
-          <span class="chip"><span class="dot"></span> free · no signup here · works on a phone</span>
-          <h1>AI, explained like a <span class="grad">friend</span> would.</h1>
-          <p class="lead">Short lessons in plain English, prompts you can copy and paste, and cheat sheets you can print. Start from nothing — even if you don't have an email yet.</p>
+          <span class="chip"><span class="dot"></span> <span id="nPrompts">100+</span> free prompts · no signup</span>
+          <h1>Copy a prompt.<br>Paste it.<br><span class="grad">Done.</span></h1>
+          <p class="lead">Real prompts for real life: emails, jobs, rent, money, letters, websites. Find what you need, tap copy, paste it into ChatGPT, Claude or Gemini.</p>
           <div class="btn-row">
-            <a class="btn btn-primary" href="start.html">Start from zero <span class="arrow">→</span></a>
-            <a class="btn btn-ghost" href="prompts.html">Grab a prompt</a>
+            <a class="btn btn-primary" href="#library">See all prompts <span class="arrow">↓</span></a>
+            <a class="btn btn-ghost" href="start.html">No AI app yet? Start here</a>
           </div>
-          <div class="hero-meta"><span>No coding</span><span>No jargon</span><span>Nothing to buy</span></div>
+          <div class="how3"><span><b>1</b> copy</span><span><b>2</b> paste into your AI</span><span><b>3</b> fill in the <span class="blank">[BRACKETS]</span></span></div>
         </div>
-
-        <div class="window" aria-label="Example chat">
-          <div class="window-bar">
-            <div class="lights"><i></i><i></i><i></i></div>
-            <div class="window-title" id="chatTitle">example chat</div>
-          </div>
-          <div class="chat" id="chat" aria-live="polite"></div>
-          <div class="chat-foot">
-            <span id="chatCaption">Example of a real prompt</span>
-            <div class="chat-dots" id="chatDots"></div>
-          </div>
-        </div>
+        <div class="flip" id="flip" aria-label="Rotating prompts"></div>
       </div>
     </section>
 
-    <!-- PICK YOUR PATH -->
-    <section class="section tight">
+    <!-- STARTER PROMPTS -->
+    <section class="section soft" id="starter">
       <div class="wrap">
-        <div class="section-head reveal">
-          <span class="label"><span class="n">01</span> / where are you at?</span>
-          <h2>Pick your starting point.</h2>
-          <p>No judgment. Everyone starts somewhere.</p>
+        <div class="section-head">
+          <span class="label"><span class="n">01</span> / pick your starting prompts</span>
+          <h2>Start with these six.</h2>
+          <p>If you only ever learn six prompts, learn these. They work in any AI app, for almost anything.</p>
         </div>
-        <div class="grid grid-3 path">
-          <a class="card reveal" href="start.html#step-1">
-            <span class="step-n">→ level 0</span>
-            <h3>I don't have an email yet</h3>
-            <p>We'll walk you through making a free Gmail, step by step. About 10 minutes.</p>
-            <div class="go">start here →</div>
-          </a>
-          <a class="card reveal" href="start.html#step-3">
-            <span class="step-n">→ level 1</span>
-            <h3>I have an email, never used AI</h3>
-            <p>Open ChatGPT, Claude or Gemini for free and send your first message.</p>
-            <div class="go">open an AI app →</div>
-          </a>
-          <a class="card reveal" href="lab.html">
-            <span class="step-n">→ level 2</span>
-            <h3>I use AI, I want more out of it</h3>
-            <p>Markdown files, code blocks, folders, and the handoff trick. Hands-on demos.</p>
-            <div class="go">open the demos →</div>
-          </a>
-        </div>
+        <div class="prompt-list" id="starterList" style="padding:0"></div>
       </div>
     </section>
 
-    <!-- HALL OF FAME -->
-    <section class="section soft">
+    <!-- FULL LIBRARY -->
+    <section id="library" style="padding-top:72px">
       <div class="wrap">
-        <div class="section-head reveal">
-          <span class="label"><span class="n">02</span> / the big three</span>
-          <h2>Three prompts that do most of the work.</h2>
-          <p>Short. Easy to remember. Works in any AI app. Tap copy, paste it in, done.</p>
+        <div class="section-head" style="margin-bottom:24px">
+          <span class="label"><span class="n">02</span> / the library</span>
+          <h2>What do you need help with?</h2>
+          <p>Every prompt is ready to go. Search it, or pick a category. Press <kbd>/</kbd> to search.</p>
         </div>
-        <div class="grid grid-3 fame" id="fame"></div>
-        <p class="reveal" style="margin-top:24px"><a href="prompts.html">See all 30+ prompts →</a></p>
+      </div>
+      <div id="lib"></div>
+    </section>
+
+    <!-- CONCEPTS -->
+    <section class="section soft" id="explain">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="label"><span class="n">03</span> / don't get it? ask your AI</span>
+          <h2>The words people throw around, in one sentence each.</h2>
+          <p>Want more? Copy the prompt under each one. Your AI will explain it as many times as you need, no judgment.</p>
+        </div>
+        <div class="grid grid-3" id="concepts"></div>
       </div>
     </section>
 
-    <!-- BAD VS GOOD -->
-    <section class="section">
+    <!-- SOURCES -->
+    <section class="section" id="read">
       <div class="wrap">
-        <div class="section-head reveal">
-          <span class="label"><span class="n">03</span> / try it</span>
-          <h2>Same question. Way better answer.</h2>
-          <p>The AI only knows what you tell it. A few extra words change everything.</p>
+        <div class="section-head">
+          <span class="label"><span class="n">04</span> / go to the source</span>
+          <h2>The real stuff. Read it, or have AI read it to you.</h2>
+          <p>These are where the ideas come from. Don't want to read a research paper? Copy the prompt and your AI will break it down for you.</p>
         </div>
-        <div class="reveal">
-          <div class="toggle" role="tablist" id="cmpTabs">
-            <button class="on" data-i="0">Job hunting</button>
-            <button data-i="1">A scary letter</button>
-            <button data-i="2">Budget</button>
-          </div>
-          <div class="compare" id="cmp"></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- WHAT'S HERE -->
-    <section class="section soft">
-      <div class="wrap">
-        <div class="section-head reveal">
-          <span class="label"><span class="n">04</span> / what's on this site</span>
-          <h2>Everything is free. Everything works on a phone.</h2>
-        </div>
-        <div class="grid grid-4">
-          <a class="card reveal" href="start.html"><div class="icon-box">✉️</div><h3>Start from zero</h3><p>Get online, make an email, open an AI app, send your first message.</p></a>
-          <a class="card reveal" href="prompts.html"><div class="icon-box">⌘</div><h3>Prompt library</h3><p>30+ copy-paste prompts for jobs, letters, money, learning and building.</p></a>
-          <a class="card reveal" href="lab.html"><div class="icon-box">🧪</div><h3>Live demos</h3><p>What a markdown file is. Why folders matter. How the handoff works. Try it yourself.</p></a>
-          <a class="card reveal" href="cheatsheets.html"><div class="icon-box">🖨️</div><h3>Cheat sheets</h3><p>One-page printouts. Take them home, tape them to the wall.</p></a>
-        </div>
+        <div class="grid grid-3" id="sources"></div>
       </div>
     </section>
 
     <!-- WHO -->
-    <section class="section">
+    <section class="section soft">
       <div class="wrap">
         <div class="grid grid-2" style="gap:40px;align-items:center">
-          <div class="reveal">
+          <div>
             <span class="label"><span class="n">05</span> / who's behind this</span>
             <h2 style="margin:14px 0 16px">Hi, I'm Roman. I've been doing this since I was 17.</h2>
             <p class="lead" style="font-size:1.1rem">In high school I ran the <b>Garden of Generosity</b>, a community garden for families in Portsmouth, NH, funded by the city. Same idea now, different tool: show up for people and give them something that actually helps.</p>
             <p style="font-weight:600">No company. No product. I do this because I love people.</p>
             <a href="workshops.html#about">My story →</a>
           </div>
-          <figure class="card reveal" style="margin:0;padding:28px">
+          <figure class="card" style="margin:0;padding:28px">
             <span class="tag blue">in the news · Portsmouth Herald, 2016</span>
             <blockquote style="margin:16px 0;font-size:1.2rem;font-weight:600;letter-spacing:-.02em;line-height:1.4;color:var(--ink)">“This project is really important, and I'm so grateful to have kids like Roman…”</blockquote>
             <figcaption class="muted small">Craig Welch, Executive Director, Portsmouth Housing Authority. <a href="https://www.seacoastonline.com/story/news/local/portsmouth-herald/2016/06/01/collaborating-to-feed-children/28234590007/" target="_blank" rel="noopener">Read the article</a></figcaption>
@@ -153,13 +113,13 @@
     <!-- IN PERSON -->
     <section class="section">
       <div class="wrap">
-        <div class="banner reveal">
+        <div class="banner">
           <span class="label" style="color:#8b93a1"><span class="n">06</span> / in person</span>
           <h2 style="margin:16px 0 14px">This site is the handout. The real thing is in the room.</h2>
-          <p>I come to shelters, reentry programs, youth centers and nonprofits. Phones out, laptops open, 90 minutes. Everyone leaves with an email, a working AI app, and a printout.</p>
+          <p>I come to shelters, reentry programs, youth centers and nonprofits. Phones out, 90 minutes. Everyone leaves with an email, a working AI app, and their favorite prompts printed out.</p>
           <div class="btn-row" style="margin-top:24px">
             <a class="btn btn-primary" href="workshops.html">How a workshop works <span class="arrow">→</span></a>
-            <a class="btn btn-ghost" href="cheatsheets.html#flyer">Print a flyer</a>
+            <a class="btn btn-ghost" href="cheatsheets.html">Printable cheat sheets</a>
           </div>
         </div>
       </div>
@@ -171,127 +131,65 @@
       <a class="logo" href="index.html"><span class="logo-mark">ai</span>aictuallyhelp</a>
       <p style="margin-top:14px">A free, hands-on way to learn AI — built for people starting over. Not a product. Not a pitch.</p>
     </div>
-    <div><h4>Learn</h4><ul><li><a href="start.html">Start from zero</a></li><li><a href="prompts.html">Prompts</a></li><li><a href="lab.html">Demos</a></li></ul></div>
+    <div><h4>Learn</h4><ul><li><a href="index.html#library">All prompts</a></li><li><a href="start.html">New to AI</a></li><li><a href="prompts.html">Prompt builder</a></li><li><a href="lab.html">Demos</a></li></ul></div>
     <div><h4>Print</h4><ul><li><a href="cheatsheets.html">Cheat sheets</a></li><li><a href="cheatsheets.html#flyer">Workshop flyer</a></li></ul></div>
     <div><h4>Organizations</h4><ul><li><a href="workshops.html">Book a workshop</a></li><li><a href="mailto:Roman@aictuallyhelp.com">Roman@aictuallyhelp.com</a></li><li><a href="https://github.com/rawmware/aictuallyhelp">Source on GitHub</a></li></ul></div>
   </div></footer>
 
   <script src="assets/site.js"></script>
   <script src="assets/prompts.js"></script>
+  <script src="assets/library.js"></script>
   <script>
   (function () {
-    const { $, escapeHTML, markBlanks } = window.AH;
+    const { $, escapeHTML, markBlanks, promptCard, mountLibrary, mountFlip } = window.AH;
+    const P = window.PROMPTS;
+    $("#nPrompts").textContent = P.length;
 
-    // ----- Big three -----
-    $("#fame").innerHTML = window.PROMPTS.filter(p => p.fame).map((p, i) => `
-      <article class="card fame-card reveal">
-        <span class="label"><span class="n">#${i + 1}</span> ${escapeHTML(p.title)}</span>
-        <div class="quote">${escapeHTML(p.text)}</div>
-        <dl><div><dt>Use it when</dt><dd>${escapeHTML(p.when)}</dd></div></dl>
-        <div class="foot">
-          <button class="btn btn-dark btn-sm" data-copy="${escapeHTML(p.text)}"><span class="copy-label">Copy prompt</span></button>
-          <a class="btn btn-ghost btn-sm" href="lab.html#${p.id === "handoff" ? "handoff" : p.id === "codeblock" ? "codeblock" : "missing"}">See it work</a>
-        </div>
+    mountFlip($("#flip"));
+    mountLibrary($("#lib"));
+
+    const starterTitles = ["Send my very first message", "I don't know how to ask", "Write a professional email"];
+    const starters = P.filter(p => p.fame).concat(starterTitles.map(t => P.find(p => p.title === t)).filter(Boolean));
+    $("#starterList").innerHTML = starters.map(promptCard).join("");
+
+    const box = (text) => `<div class="codebox"><div class="codebox-head"><span>ask your AI</span><button class="copy" type="button" data-copy><span class="copy-label">Copy</span></button></div><pre>${markBlanks(text)}</pre></div>`;
+
+    const concepts = [
+      ["What's a prompt?", "Whatever you type to the AI. Better prompt, better answer. That's the whole game.", "Explain what a “prompt” is when using AI. Show me a bad prompt and a good prompt for the same question, and explain why the good one works."],
+      ["What's an AI chatbot?", "An app like ChatGPT, Claude or Gemini that reads what you write and writes back. It learned from a huge amount of text.", "Explain what an AI chatbot like you actually is, in simple words. How do you come up with answers? What are you good at, and what are you bad at?"],
+      ["What's an AI agent?", "An AI that doesn't just answer. It takes steps for you, like searching, clicking, writing files or building an app, until the job is done.", "Explain what an AI agent is in simple words, with an everyday example. How is it different from a regular chatbot? What could an agent do for someone like me?"],
+      ["What's a markdown file?", "A plain text file (.md) with simple symbols like # for titles and - for bullets. AI reads and writes it perfectly.", "Explain what a markdown (.md) file is and why people use them with AI. Then show me a short example about my goals for this month."],
+      ["What's a code block?", "A gray box in the AI's answer that keeps text exactly as-is and gives you a copy button. You don't need to code to use one.", "What's a code block, and why would someone who doesn't code ask for one? Show me an example."],
+      ["What's a hallucination?", "When AI says something wrong with total confidence. It happens. That's why you double-check anything important.", "What does it mean when AI “hallucinates”? Why does it happen, and how can I catch it? Give me 3 simple habits."],
+      ["What's a context window?", "How much of the chat the AI can keep in mind at once. Really long chats start to slip. Start fresh when that happens.", "Explain “context window” in simple words. Why do long chats get worse, and what should I do about it?"],
+      ["What's an LLM?", "Large Language Model: the engine inside AI chatbots. It predicts what words should come next, really, really well.", "Explain what a large language model (LLM) is like I'm new to tech. Use one simple analogy."],
+      ["What's Claude Code?", "An AI agent for building software. You describe what you want in plain English, and it writes and runs the code.", "Explain what Claude Code is and what an “AI coding agent” does, in simple words. Could a beginner with no coding experience use one? What would they need?"],
+    ];
+    $("#concepts").innerHTML = concepts.map(([h, p, q]) => `<article class="card concept" style="box-shadow:none"><h3>${escapeHTML(h)}</h3><p>${escapeHTML(p)}</p>${box(q)}</article>`).join("");
+
+    const sources = [
+      ["Attention Is All You Need", "Research paper · Vaswani et al., Google · 2017", "The paper that introduced the “transformer,” the idea behind basically every AI chatbot today.", "https://arxiv.org/abs/1706.03762",
+        "Explain the research paper “Attention Is All You Need” (2017) in simple words. What problem did it solve, what is a “transformer,” and why does it matter for the AI I use today?"],
+      ["Claude Code: Best practices for agentic coding", "Guide · Anthropic, from Boris Cherny's team · 2025", "How the people who built Claude Code actually use it: plan first, give context, check the work.", "https://www.anthropic.com/engineering/claude-code-best-practices",
+        "Summarize the main ideas from Anthropic's guide “Claude Code: Best practices for agentic coding” in simple words. Which tips would help a total beginner who wants to build their first website?"],
+      ["Boris Cherny: Building Claude Code", "Talk · Y Combinator", "The creator of Claude Code on how it was built and how he works with AI agents every day.", "https://www.ycombinator.com/library/UN-boris-cherny-building-claude-code",
+        "Who is Boris Cherny and what is Claude Code? Explain in simple words how he says people should work with AI coding agents."],
+      ["Building effective agents", "Article · Anthropic · 2024", "What an AI agent really is, and why simple setups usually beat complicated ones.", "https://www.anthropic.com/research/building-effective-agents",
+        "Explain the main ideas of Anthropic's article “Building effective agents” in simple words. What's the difference between a workflow and an agent? Give me everyday examples."],
+      ["Intro to Large Language Models", "Video · Andrej Karpathy · 1 hour", "One of the best plain-English explanations of how AI chatbots work, from a founding member of OpenAI.", "https://www.youtube.com/watch?v=zjkBMFhNj_g",
+        "Explain how large language models work, the way Andrej Karpathy does in his “Intro to Large Language Models” talk. Keep it simple and use analogies."],
+      ["But what is a GPT?", "Video · 3Blue1Brown", "Beautiful animations that show what's happening inside an AI model. Great if you learn by seeing.", "https://www.youtube.com/watch?v=wjZofJX0v4M",
+        "Explain what “GPT” stands for and what's happening inside it when I send a message. Use a simple step-by-step picture in words."],
+      ["Prompt engineering overview", "Docs · Anthropic", "The official guide to writing better prompts, from the company that makes Claude.", "https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview",
+        "Teach me the 5 most useful prompt-writing tips, with a before-and-after example for each. Keep it simple."],
+    ];
+    $("#sources").innerHTML = sources.map(([t, meta, d, url, q]) => `
+      <article class="card source" style="box-shadow:none">
+        <span class="meta">${escapeHTML(meta)}</span>
+        <h3><a href="${url}" target="_blank" rel="noopener">${escapeHTML(t)}</a></h3>
+        <p>${escapeHTML(d)}</p>
+        ${box(q)}
       </article>`).join("");
-    window.AH.observeReveals($("#fame"));
-
-    // ----- Hero chat demo -----
-    const convos = [
-      {
-        title: "prompt #3 · blind-spot check",
-        caption: "What am I missing?",
-        me: "My plan for my interview tomorrow: wear clean clothes and show up on time. What am I missing from this, and why is it important?",
-        ai: `A few things that make a big difference:<ul>
-          <li><b>Research the company (10 min).</b> They'll ask "why here?"</li>
-          <li><b>Plan your route + leave 20 min early.</b> Buses run late.</li>
-          <li><b>Practice "tell me about yourself."</b> It's almost always the first question.</li>
-          <li><b>Bring 2 questions to ask them.</b> It shows you care.</li></ul>`
-      },
-      {
-        title: "prompt #2 · code block",
-        caption: "Write this in a code block",
-        me: "Write a text to my caseworker saying I can't make Tuesday but can do Thursday. Write this in a code block for me.",
-        ai: `Here you go — tap copy and paste it into your texts:<pre>Hi Ms. Rivera, this is Marcus. I can't make our meeting Tuesday, but I'm free Thursday any time before 3. Does that work? Thank you!</pre>`
-      },
-      {
-        title: "prompt #1 · the handoff",
-        caption: "Create a markdown file…",
-        me: "Create a markdown file about what I'm about to say, so the next bot will build it for me in one shot. I want a one-page site for my pressure-washing side hustle…",
-        ai: `<pre># Project: Pressure Washing Site
-
-## Goal
-One page. Get people to call or text.
-
-## Sections
-- Big headline + phone number
-- Before / after photos
-- Prices: driveway $80, deck $120
-
-## Style
-Clean, blue and white, big buttons</pre>Paste this into a new chat and say “build this.”`
-      }
-    ];
-    const chat = $("#chat"), dots = $("#chatDots");
-    let idx = 0, timers = [];
-    dots.innerHTML = convos.map((_, i) => `<button aria-label="Show example ${i + 1}"></button>`).join("");
-    dots.addEventListener("click", e => { const b = e.target.closest("button"); if (b) play([...dots.children].indexOf(b)); });
-    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    function later(fn, ms) { timers.push(setTimeout(fn, reduce ? 0 : ms)); }
-    function play(i) {
-      timers.forEach(clearTimeout); timers = [];
-      idx = i;
-      const c = convos[i];
-      [...dots.children].forEach((d, j) => d.classList.toggle("on", j === i));
-      $("#chatTitle").textContent = c.title;
-      $("#chatCaption").textContent = "Example · " + c.caption;
-      chat.innerHTML = "";
-      later(() => { chat.insertAdjacentHTML("beforeend", `<div class="msg me">${escapeHTML(c.me)}</div>`); }, 300);
-      later(() => { chat.insertAdjacentHTML("beforeend", `<div class="msg ai" id="typing"><span class="who">AI</span><span class="typing"><i></i><i></i><i></i></span></div>`); }, 1200);
-      later(() => { const t = $("#typing"); if (t) { t.removeAttribute("id"); t.innerHTML = `<span class="who">AI</span>${c.ai}`; } }, 2600);
-      if (!reduce) later(() => play((i + 1) % convos.length), 9500);
-    }
-    play(0);
-
-    // ----- Bad vs good -----
-    const cmp = [
-      { bad: "help me find a job",
-        badOut: "Sure! Here are some general tips: update your resume, network, use job boards like Indeed…",
-        good: "I'm in Oakland, no car, I have 3 years of warehouse and kitchen experience and a gap from 2022–2024. Find me 5 kinds of jobs I could get this month, near a bus line, and tell me how to explain the gap.",
-        goodOut: "Based on your experience: 1) Prep cook — restaurants hire fast… 2) Warehouse associate near BART… For the gap, try: “I was dealing with a personal situation that's resolved, and I'm ready to…”",
-        badScore: 18, goodScore: 92 },
-      { bad: "what does this mean",
-        badOut: "I'm not sure what you're referring to. Could you share more details?",
-        good: "Explain this letter in plain English. What do they want from me, what's the deadline, and what should I do next? [photo of letter attached]",
-        goodOut: "This is a notice from Medi-Cal. They need proof of income by Oct 15, or your coverage may pause. Next step: send your last 2 pay stubs — here's how…",
-        badScore: 8, goodScore: 95 },
-      { bad: "budget",
-        badOut: "A budget is a plan for how you spend money. The 50/30/20 rule says…",
-        good: "I get about $1,100 a month. Rent is $600, phone $40, bus pass $50, food about $300. Make me a simple budget and show me where I could save. Keep it short.",
-        goodOut: "You have $110 left over. Easy wins: CalFresh could cover ~$200 of food. Lifeline can cut your phone bill to $0–$10. That's up to $230 back each month.",
-        badScore: 15, goodScore: 90 },
-    ];
-    function renderCmp(i) {
-      const c = cmp[i];
-      $("#cmp").innerHTML = `
-        <div class="pane"><h4><span class="tag amber">vague</span> what most people type</h4>
-          <div class="codebox"><pre>${escapeHTML(c.bad)}</pre></div>
-          <p class="muted small" style="margin:14px 0 0"><b>AI says:</b> ${escapeHTML(c.badOut)}</p>
-          <div class="score"><span>how helpful</span><span class="bar"><i style="width:0;background:#e5a13a"></i></span></div>
-        </div>
-        <div class="pane"><h4><span class="tag green">specific</span> what works</h4>
-          <div class="codebox"><div class="codebox-head">prompt <button class="copy" data-copy><span class="copy-label">Copy</span></button></div><pre>${markBlanks(c.good)}</pre></div>
-          <p class="muted small" style="margin:14px 0 0"><b>AI says:</b> ${escapeHTML(c.goodOut)}</p>
-          <div class="score"><span>how helpful</span><span class="bar"><i style="width:0;background:var(--green)"></i></span></div>
-        </div>`;
-      const bars = $("#cmp").querySelectorAll(".bar i");
-      requestAnimationFrame(() => requestAnimationFrame(() => { bars[0].style.width = c.badScore + "%"; bars[1].style.width = c.goodScore + "%"; }));
-    }
-    $("#cmpTabs").addEventListener("click", e => {
-      const b = e.target.closest("button"); if (!b) return;
-      [...$("#cmpTabs").children].forEach(x => x.classList.toggle("on", x === b));
-      renderCmp(+b.dataset.i);
-    });
-    renderCmp(0);
   })();
   </script>
 </body>

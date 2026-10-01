@@ -14,8 +14,10 @@
   <header class="topbar"><div class="wrap">
     <a class="logo" href="index.html"><span class="logo-mark">ai</span>aictuallyhelp<span class="cursor">_</span></a>
     <nav class="nav" aria-label="Main">
-      <a href="start.html">Start from zero</a>
-      <a href="prompts.html" aria-current="page">Prompts</a>
+      <a href="index.html#library">Prompts</a>
+      <a href="index.html#explain">What's an agent?</a>
+      <a href="start.html">New to AI</a>
+      <a href="prompts.html" aria-current="page">Prompt builder</a>
       <a href="lab.html">Demos</a>
       <a href="cheatsheets.html">Cheat sheets</a>
       <a href="workshops.html" class="nav-cta">Book a workshop</a>
@@ -24,17 +26,12 @@
 
   <main>
     <section class="page-head"><div class="wrap">
-      <span class="label"><span class="n">~/prompts</span> · <span id="count">30</span> prompts</span>
+      <span class="label"><span class="n">~/prompts</span> · <span id="count">100+</span> prompts</span>
       <h1>Copy. Paste. Done.</h1>
       <p class="lead">Prompts that actually work, in plain English. Anything in <span class="blank">[BRACKETS]</span> is where you fill in your own info. Works in ChatGPT, Claude and Gemini.</p>
     </div></section>
 
-    <div class="toolbar"><div class="wrap">
-      <div class="search"><input type="search" id="q" placeholder="Search — try “resume”, “letter”, “budget”…" aria-label="Search prompts"><kbd>/</kbd></div>
-      <div class="filters" id="filters" role="tablist"></div>
-    </div></div>
-
-    <div class="wrap"><div class="prompt-list" id="list" aria-live="polite"></div></div>
+    <div id="lib"></div>
 
     <section class="section soft" id="builder">
       <div class="wrap">
@@ -72,55 +69,19 @@
       <a class="logo" href="index.html"><span class="logo-mark">ai</span>aictuallyhelp</a>
       <p style="margin-top:14px">A free, hands-on way to learn AI — built for people starting over. Not a product. Not a pitch.</p>
     </div>
-    <div><h4>Learn</h4><ul><li><a href="start.html">Start from zero</a></li><li><a href="prompts.html">Prompts</a></li><li><a href="lab.html">Demos</a></li></ul></div>
+    <div><h4>Learn</h4><ul><li><a href="index.html#library">All prompts</a></li><li><a href="start.html">New to AI</a></li><li><a href="prompts.html">Prompt builder</a></li><li><a href="lab.html">Demos</a></li></ul></div>
     <div><h4>Print</h4><ul><li><a href="cheatsheets.html">Cheat sheets</a></li><li><a href="cheatsheets.html#flyer">Workshop flyer</a></li></ul></div>
     <div><h4>Organizations</h4><ul><li><a href="workshops.html">Book a workshop</a></li><li><a href="mailto:Roman@aictuallyhelp.com">Roman@aictuallyhelp.com</a></li><li><a href="https://github.com/rawmware/aictuallyhelp">Source on GitHub</a></li></ul></div>
   </div></footer>
 
   <script src="assets/site.js"></script>
   <script src="assets/prompts.js"></script>
+  <script src="assets/library.js"></script>
   <script>
   (function () {
     const { $, escapeHTML, markBlanks } = window.AH;
-    const P = window.PROMPTS, CATS = window.PROMPT_CATS;
-    const catName = Object.fromEntries(CATS.map(c => [c.id, c.name]));
-    let cat = "all";
-    const hashCat = location.hash.slice(1);
-    if (CATS.some(c => c.id === hashCat)) cat = hashCat;
-    $("#count").textContent = P.length;
-
-    const inCat = (p, c) => c === "all" || (c === "fame" ? p.fame : p.cat === c);
-    $("#filters").innerHTML = CATS.map(c =>
-      `<button type="button" data-c="${c.id}">${c.name}<span class="ct">${P.filter(p => inCat(p, c.id)).length}</span></button>`).join("");
-
-    function render() {
-      const q = $("#q").value.trim().toLowerCase();
-      [...$("#filters").children].forEach(b => b.classList.toggle("on", b.dataset.c === cat));
-      const items = P.filter(p => inCat(p, cat) && (!q || (p.title + " " + p.text + " " + p.when).toLowerCase().includes(q)));
-      $("#list").innerHTML = items.length ? items.map(p => `
-        <article class="pcard">
-          <div class="top">
-            <div class="meta">${p.fame ? '<span class="tag amber">★ top 3</span>' : ""}<span class="tag">${escapeHTML(catName[p.cat])}</span></div>
-            <h3>${escapeHTML(p.title)}</h3>
-          </div>
-          <pre>${markBlanks(p.text)}</pre>
-          <div class="when"><b style="color:var(--ink-2)">Use it when:</b> ${escapeHTML(p.when)}</div>
-          <div class="act">
-            <span class="mono small" style="color:var(--faint)">#${p.id}</span>
-            <button class="copy" type="button" data-copy="${escapeHTML(p.text)}"><span class="copy-label">Copy</span></button>
-          </div>
-        </article>`).join("")
-        : `<div class="empty">Nothing matches “${escapeHTML(q)}”. Try a simpler word — or use the <a href="#builder">prompt builder</a>.</div>`;
-    }
-    $("#filters").addEventListener("click", e => {
-      const b = e.target.closest("button"); if (!b) return;
-      cat = b.dataset.c; history.replaceState(null, "", cat === "all" ? location.pathname : "#" + cat); render();
-    });
-    $("#q").addEventListener("input", render);
-    document.addEventListener("keydown", e => {
-      if (e.key === "/" && !/INPUT|TEXTAREA|SELECT/.test(document.activeElement.tagName)) { e.preventDefault(); $("#q").focus(); }
-    });
-    render();
+    $("#count").textContent = window.PROMPTS.length;
+    window.AH.mountLibrary($("#lib"));
 
     // ----- Builder -----
     const goals = {
