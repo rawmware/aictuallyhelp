@@ -3,12 +3,19 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Workshops — AI Actually Help</title>
+  <title>Free AI Workshops in NH, ME &amp; MA | AI Actually Help</title>
   <meta name="description" content="Free, hands-on AI workshops for shelters, reentry programs, youth centers and nonprofits. 90 minutes. Everyone leaves with an email, a working AI app, and a printout.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/site.css">
+<link rel="canonical" href="https://www.aictuallyhelp.com/workshops.html">
+<meta property="og:title" content="Free AI Workshops in NH, ME &amp; MA | AI Actually Help">
+<meta property="og:description" content="Free, hands-on AI workshops for shelters, reentry programs, youth centers and nonprofits. 90 minutes. Everyone leaves with an email, a working AI app, and a printout.">
+<meta property="og:url" content="https://www.aictuallyhelp.com/workshops.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="AI Actually Help">
+<meta name="twitter:card" content="summary">
 </head>
 <body>
   <header class="topbar"><div class="wrap">
@@ -130,7 +137,7 @@
           <span class="label"><span class="n">04</span> / get in touch</span>
           <h2 style="margin:14px 0 14px">Let's find a time.</h2>
           <p class="lead">Fill this in and it writes the email for you. Send it from your own email app. No forms, no tracking.</p>
-          <p class="muted">Or email directly: <a id="mailLink" href="#"></a></p>
+          <p class="muted">Or email directly: <a id="mailLink" href="mailto:Roman@aictuallyhelp.com">Roman@aictuallyhelp.com</a></p>
         </div>
         <form class="card form" id="req" style="box-shadow:var(--shadow-lg);display:grid;gap:14px">
           <div class="row">
@@ -138,9 +145,10 @@
             <div class="field"><label for="r_org">Organization</label><input type="text" id="r_org" autocomplete="organization" required></div>
           </div>
           <div class="row">
-            <div class="field"><label for="r_city">City / town</label><input type="text" id="r_city"></div>
+            <div class="field"><label for="r_city">City / town and state</label><input type="text" id="r_city"></div>
             <div class="field"><label for="r_size">Group size (about)</label><input type="text" id="r_size" placeholder="e.g. 12"></div>
           </div>
+          <div class="field"><label for="r_format">In person or online?</label><select id="r_format"><option>In person</option><option>Online</option><option>Help me choose</option></select></div>
           <div class="field"><label for="r_who">Who would come?</label><input type="text" id="r_who" placeholder="e.g. adults in our shelter, teens in our program"></div>
           <div class="field"><label for="r_when">Good days / times</label><input type="text" id="r_when" placeholder="e.g. Tuesday evenings"></div>
           <div class="field"><label for="r_note">Anything else?</label><textarea id="r_note" placeholder="Wi‑Fi situation, what your people need most, etc."></textarea></div>
@@ -151,6 +159,7 @@
         </form>
       </div>
     </div></section>
+  <section class="section soft" id="new-england"><div class="wrap"><div class="cta-strip"><div><h2>Free AI workshops in New Hampshire, Maine &amp; Massachusetts.</h2><p>In-person and online learning for nonprofits and community groups, including Portsmouth and Rye, NH. Choose a useful first task and leave with resources to keep practicing.</p></div><a class="btn btn-primary" href="workshops-new-england.html">Explore regional workshops →</a></div></div></section>
   </main>
 
   <footer class="footer"><div class="wrap">
@@ -179,6 +188,7 @@
         `I'm ${v("r_name") || "[name]"} from ${v("r_org") || "[organization]"}${v("r_city") ? " in " + v("r_city") : ""}. We'd love to host an AI workshop.`,
         "",
         v("r_who") && `Who would come: ${v("r_who")}`,
+        `Preferred format: ${v("r_format")}`,
         v("r_size") && `Group size: about ${v("r_size")}`,
         v("r_when") && `Good times: ${v("r_when")}`,
         v("r_note") && `\n${v("r_note")}`,
