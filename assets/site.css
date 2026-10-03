@@ -738,3 +738,29 @@ table.dns tr:last-child td { border-bottom: 0; }
 .pro .codebox pre { font-size: 13.5px; }
 .src-list { columns: 2 320px; column-gap: 32px; padding-left: 20px; margin: 0; }
 .src-list li { break-inside: avoid; margin: 0 0 10px; font-size: 15px; color: var(--muted); }
+
+/* ---------- fresh repos ---------- */
+.rcount { margin: 20px 0 0; min-height: 1.4em; }
+.repo-list { display: grid; gap: 16px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr)); padding: 14px 0 32px; }
+.repo-list[aria-busy="true"] { opacity: .6; }
+.more-row { justify-content: center; padding-bottom: 72px; }
+.rcard { background: #fff; border: 1px solid var(--line); border-radius: var(--radius-lg); display: flex; flex-direction: column; min-width: 0; box-shadow: var(--shadow); }
+.rcard .top { padding: 18px 18px 10px; display: grid; gap: 8px; }
+.rcard .meta { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; }
+.rcard .rstat { font: 500 13px/1 var(--mono); color: var(--muted); margin-left: auto; }
+.rcard h3 { font-size: 1.05rem; font-weight: 500; margin: 0; overflow-wrap: anywhere; }
+.rcard h3 a { color: var(--ink); }
+.rcard .desc { margin: 0; color: var(--muted); font-size: 15px; overflow-wrap: anywhere; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.rcard .launch { padding: 4px 18px 0; display: grid; gap: 8px; justify-items: start; }
+.rcard .launch p { margin: 0; }
+.rcard .needs { color: var(--ink-2); }
+.rcard .more { padding: 10px 18px 0; display: flex; flex-wrap: wrap; gap: 6px; }
+.rcard .more a { font: 500 13px/1 var(--mono); padding: 7px 9px; border: 1px solid var(--line-2); border-radius: 7px; color: var(--ink-2); }
+.rcard .more a:hover { background: var(--bg-soft); text-decoration: none; }
+.rcard .heads { margin: 10px 18px 0; padding: 10px 12px; border-radius: 8px; background: var(--amber-soft); color: #5c3a00; font-size: 14px; }
+.rcard details { margin: 12px 18px 0; border-top: 1px solid var(--line); padding-top: 10px; }
+.rcard summary { cursor: pointer; font: 600 13px/1.4 var(--mono); color: var(--ink-2); }
+.rcard details[open] { display: grid; gap: 10px; }
+.rcard details .codebox pre { font-size: 13px; padding: 12px; }
+.rcard details p { margin: 0; }
+.rcard .act { padding: 14px 18px 18px; margin-top: auto; display: flex; justify-content: space-between; align-items: center; gap: 8px; flex-wrap: wrap; }

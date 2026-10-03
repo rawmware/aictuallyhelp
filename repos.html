@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fresh repos — AI Actually Help</title>
+  <meta name="description" content="The newest GitHub projects people are starring, with one-click ways to run each one in your web browser. No downloads. Updated every 15 minutes.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/site.css">
+<link rel="canonical" href="https://www.aictuallyhelp.com/repos.html">
+<meta property="og:title" content="Fresh repos — AI Actually Help">
+<meta property="og:description" content="The newest GitHub projects people are starring, with one-click ways to run each one in your web browser. No downloads. Updated every 15 minutes.">
+<meta property="og:url" content="https://www.aictuallyhelp.com/repos.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="AI Actually Help">
+<meta name="twitter:card" content="summary">
+</head>
+<body>
+  <header class="topbar"><div class="wrap">
+    <a class="logo" href="index.html"><span class="logo-mark">ai</span>aictuallyhelp<span class="cursor">_</span></a>
+    <nav class="nav" aria-label="Main">
+      <a href="index.html#library">Prompts</a>
+      <a href="index.html#agent">What's an agent?</a>
+      <a href="words.html">AI words</a>
+      <a href="start.html">New to AI</a>
+      <a href="website.html">Make a website</a>
+      <a href="lab.html">Demos</a>
+      <a href="cheatsheets.html">Cheat sheets</a>
+      <a href="workshops.html" class="nav-cta">Book a workshop</a>
+    </nav>
+  </div></header>
+
+  <main>
+    <section class="page-head"><div class="wrap">
+      <span class="label"><span class="n">~/fresh-repos</span> · updated every 15 minutes</span>
+      <h1>Brand-new GitHub projects. <span class="grad">Run them in your browser.</span></h1>
+      <p class="lead">A robot finds the newest open-source projects people are starring, then works out the easiest way to run each one right in a browser tab: no download, no install, no new computer. Open one, try it, then make it yours.</p>
+      <div class="stat-row" style="margin-top:28px">
+        <div class="stat"><b id="st-total">—</b><span>guides written</span></div>
+        <div class="stat"><b id="st-today">—</b><span>found today</span></div>
+        <div class="stat"><b id="st-instant">—</b><span>run in a tab, no account</span></div>
+        <div class="stat"><b id="st-updated">—</b><span>last update</span></div>
+      </div>
+    </div></section>
+
+    <div id="repos"></div>
+
+    <section class="section soft" id="how">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="label"><span class="n">how</span> / it works</span>
+          <h2>Somebody else's project, your own app, all in the browser.</h2>
+          <p>Every card tells you the easiest place to run that project. Here's what the buttons mean.</p>
+        </div>
+        <div class="grid grid-3">
+          <div class="card"><h3>⚡ StackBlitz</h3><p>Runs JavaScript projects inside your browser tab. No account, no install. Wait for it to load and the app appears.</p></div>
+          <div class="card"><h3>💻 GitHub Codespaces</h3><p>A whole computer in your browser, free for 60 hours a month with a GitHub account. Works for almost any project, even on a phone or Chromebook.</p></div>
+          <div class="card"><h3>📓 Colab &amp; Binder</h3><p>For Python and notebooks. Colab (Google account) gives you a free GPU for AI projects. Binder needs no sign-in at all.</p></div>
+          <div class="card"><h3>🍴 Fork</h3><p>Makes your own copy on GitHub. Change anything you want, then put it online for free with <a href="website.html">GitHub Pages or Vercel</a>.</p></div>
+          <div class="card"><h3>🤖 “Make it mine” prompt</h3><p>Copy it and paste it into ChatGPT, Claude or Gemini. It walks you through running the project, changing it and putting it online, one step at a time.</p></div>
+          <div class="card"><h3>📜 License</h3><p>Every card says what you're allowed to do. No license means look and learn, but ask the author before reusing their code.</p></div>
+        </div>
+        <p class="muted small" style="margin-top:24px">The list comes from <a href="https://github.com/rawmware/github.fetch">github.fetch</a>, an open-source robot that runs on GitHub's own servers. Projects are picked by stars, not checked by a person, so read before you run anything.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer"><div class="wrap">
+    <div>
+      <a class="logo" href="index.html"><span class="logo-mark">ai</span>aictuallyhelp</a>
+      <p style="margin-top:14px">A free, hands-on way to learn AI — built for people starting over. Not a product. Not a pitch.</p>
+    </div>
+    <div><h4>Learn</h4><ul><li><a href="index.html#library">All prompts</a></li><li><a href="words.html">AI words, decoded</a></li><li><a href="start.html">New to AI</a></li><li><a href="website.html">Make a website</a></li><li><a href="prompts.html">Prompt builder</a></li><li><a href="repos.html">Fresh repos</a></li><li><a href="lab.html">Demos</a></li></ul></div>
+    <div><h4>Print</h4><ul><li><a href="cheatsheets.html">Cheat sheets</a></li><li><a href="cheatsheets.html#flyer">Workshop flyer</a></li></ul></div>
+    <div><h4>Organizations</h4><ul><li><a href="workshops.html">Book a workshop</a></li><li><a href="mailto:Roman@aictuallyhelp.com">Roman@aictuallyhelp.com</a></li><li><a href="https://github.com/rawmware/aictuallyhelp">Source on GitHub</a></li></ul></div>
+  </div></footer>
+
+  <script src="assets/site.js"></script>
+  <script src="assets/repos.js"></script>
+  <script>window.AH.mountRepos(document.getElementById("repos"));</script>
+</body>
+</html>
